@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import useGSAP from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
@@ -9,4 +9,4 @@ gsap.defaults({
 });
 
 export * from "gsap";
-export * from "@gsap/react";
+export { useGSAP } from "@gsap/react";
