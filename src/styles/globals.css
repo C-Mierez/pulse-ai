@@ -3,53 +3,102 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 180 4% 5%;
-    --foreground: 0 0% 98%;
+    :root {
+        --background: 0, 0%, 3.9%;
+        --foreground: 0, 0%, 98%;
 
-    --card: 240 3% 6%;
-    --card-foreground: 0 0% 98%;
+        --card: 0, 0%, 3.9%;
+        --card-foreground: 0, 0%, 98%;
 
-    --popover: 240 3% 6%;
-    --popover-foreground: 0 0% 98%;
+        --popover: 0, 0%, 3.9%;
+        --popover-foreground: 0, 0%, 98%;
 
-    --primary: 230 48% 39%;
-    --primary-foreground: 0 0% 98%;
+        --primary: 0, 0%, 45.1%;
+        --primary-200: 0, 0%, 89.8%;
+        --primary-600: 0, 0%, 32.2%;
+        --primary-800: 0, 0%, 14.9%;
+        --primary-900: 0, 0%, 9%;
+        --primary-foreground: 240 5.9% 10%;
 
-    --secondary: 240 2% 12%;
-    --secondary-foreground: 0 0% 98%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0, 0%, 98%;
 
-    --muted: 240 2% 18%;
-    --muted-foreground: 228 2% 49%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
 
-    --accent: 229 18% 12%;
-    --accent-foreground: 0 0% 98%;
+        --accent-light: 50, 100%, 52%;
+        --accent: 46, 100%, 50%;
+        --accent-foreground: 0, 0%, 98%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0, 0%, 98%;
 
-    --border: 240 2% 12%;
-    --input: 240 2% 18%;
-    --ring: 230 48% 40%;
-  }
+        --border: 240 2% 12%;
+        --input: 240 2% 18%;
+        --ring: 230 48% 40%;
+        --radius: 0.3rem;
+    }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer components {
+    .hover-glow {
+        @apply text-primary-200 transition-colors duration-200 ease-in-out hover:text-foreground;
+    }
+
+    /* CTA Button Animations */
+    .radial-bg {
+        background: radial-gradient(
+                circle at 50% 0%,
+                hsla(var(--foreground), 0.05) 0%,
+                transparent 60%
+            ),
+            hsla(var(--primary-900), 1);
+    }
+    .linear-mask {
+        mask-image: linear-gradient(
+            -75deg,
+            white calc(var(--x) + 20%),
+            transparent calc(var(--x) + 30%),
+            white calc(var(--x) + 100%)
+        );
+        -webkit-mask-image: linear-gradient(
+            -75deg,
+            white calc(var(--x) + 20%),
+            transparent calc(var(--x) + 30%),
+            white calc(var(--x) + 100%)
+        );
+    }
+    .linear-overlay {
+        background-image: linear-gradient(
+            -75deg,
+            hsla(var(--primary-800), 0.5) calc(var(--x) + 20%),
+            hsla(var(--primary-600), 1) calc(var(--x) + 30%),
+            hsla(var(--primary-800), 0.5) calc(var(--x) + 100%)
+        );
+        mask:
+            linear-gradient(black, black) content-box,
+            linear-gradient(black, black);
+        mask-composite: exclude;
+        --webkit-mask-composite: xor;
+    }
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
