@@ -28,13 +28,13 @@ const config = {
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
                 primary: {
-                    DEFAULT: "hsl(var(--primary))",
-                    200: "hsl(var(--primary-200))",
-                    300: "hsl(var(--primary-300))",
-                    600: "hsl(var(--primary-600))",
-                    800: "hsl(var(--primary-800))",
-                    900: "hsl(var(--primary-900))",
-                    foreground: "hsl(var(--primary-foreground))",
+                    DEFAULT: "hsl(var(--primary), <alpha-value>)",
+                    200: "hsl(var(--primary-200), <alpha-value>)",
+                    300: "hsl(var(--primary-300), <alpha-value>)",
+                    600: "hsl(var(--primary-600), <alpha-value>)",
+                    800: "hsl(var(--primary-800), <alpha-value>)",
+                    900: "hsl(var(--primary-900), <alpha-value>)",
+                    foreground: "hsl(var(--primary-foreground), <alpha-value>)",
                 },
                 secondary: {
                     DEFAULT: "hsl(var(--secondary))",
@@ -83,7 +83,10 @@ const config = {
             },
         },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [
+        require("tailwindcss-animate"),
+        require("@tailwindcss/typography"),
+    ],
 } satisfies Config;
 
 export default config;
