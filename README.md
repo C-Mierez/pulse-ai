@@ -16,7 +16,12 @@ Using Prismic with Next.js Server Components reduces the performance implication
 
 Given that all content is managed by Prismic, the website preserves consistency pretty well. Content that belongs to a different page but can be previewed on another page is easily accessible and thus changes on one page can be reflected on another page without needing to update the codebase.
 
-
+### TODO
+- [ ] Fix lack of global padding on small screens
+- [ ] Add responsive layout
+- [ ] Add localization
+- [ ] Add more data to mobile nav menu, like a footer
+- [ ] Fill the Features page with something
 
 ### TODO Animations
 - [ ] Website loader
@@ -32,3 +37,4 @@ Given that all content is managed by Prismic, the website preserves consistency 
 - [ ] Case Study image enter animation
 - [ ] Add magnetic buttons to socials
 - [ ] Add border illumination on bento boxes based on mouse position
+- [ ] Animate nav menu
