@@ -1,12 +1,11 @@
-import { asText, Content } from "@prismicio/client";
+import { asText } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
-import {
-    PrismicRichText,
-    PrismicText,
-    SliceComponentProps,
-} from "@prismicio/react";
+import { PrismicRichText, PrismicText } from "@prismicio/react";
 import Bounded from "~/components/layout/bounded";
 import { cn } from "~/lib/utils";
+
+import type { Content } from "@prismicio/client";
+import type { SliceComponentProps } from "@prismicio/react";
 
 /**
  * Props for `Bento`.

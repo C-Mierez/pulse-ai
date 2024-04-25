@@ -1,14 +1,12 @@
-import { Content, isFilled } from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import {
-    PrismicRichText,
-    PrismicText,
-    SliceComponentProps,
-} from "@prismicio/react";
+import { isFilled } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
+import { PrismicText } from "@prismicio/react";
 import PulseGrid from "~/app/(homepage)/_components/pulse-grid";
 import Bounded from "~/components/layout/bounded";
 import ButtonCTA from "~/components/shared/button-cta";
 
+import type { Content } from "@prismicio/client";
+import type { SliceComponentProps } from "@prismicio/react";
 /**
  * Props for `Hero`.
  */

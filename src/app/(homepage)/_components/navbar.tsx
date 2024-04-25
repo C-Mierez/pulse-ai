@@ -1,4 +1,3 @@
-import { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import Branding from "~/components/shared/branding";
@@ -6,6 +5,7 @@ import ButtonCTA from "~/components/shared/button-cta";
 
 import Menu from "./menu";
 
+import type { Content } from "@prismicio/client";
 interface NavbarProps {
     settings: Content.SettingsDocument;
 }

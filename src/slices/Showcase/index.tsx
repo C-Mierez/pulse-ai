@@ -1,11 +1,13 @@
-import { Content, isFilled } from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { asText, isFilled } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import { GearIcon, SymbolIcon } from "@radix-ui/react-icons";
 import Bounded from "~/components/layout/bounded";
 import ButtonCTA from "~/components/shared/button-cta";
 import { cn } from "~/lib/utils";
 
+import type { Content } from "@prismicio/client";
+import type { SliceComponentProps } from "@prismicio/react";
 const icons = {
     gear: <GearIcon className="size-8" />,
     cycle: <SymbolIcon className="size-8" />,
@@ -51,7 +53,10 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
 
             {slice.items.map((item) => {
                 return (
-                    <div className="mt-12 grid grid-cols-3 items-center gap-6 rounded-lg border border-border bg-gradient-to-tr from-primary-800/15 to-primary-300/25 p-8 backdrop-blur-md max-md:grid-cols-1">
+                    <div
+                        key={asText(item.title)}
+                        className="mt-12 grid grid-cols-3 items-center gap-6 rounded-lg border border-border bg-gradient-to-tr from-primary-800/15 to-primary-300/25 p-8 backdrop-blur-md max-md:grid-cols-1"
+                    >
                         <div className="flex flex-col gap-4">
                             <div className="aspect-square w-fit rounded-lg bg-accent/75 p-4">
                                 {item.icon && icons[item.icon]}
@@ -69,7 +74,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
                                 field={item.button_link}
                                 className="mt-2"
                             >
-                                {item.button_label || "Learn More"}
+                                {item.button_label ?? "Learn More"}
                             </ButtonCTA>
                         </div>
                         <PrismicNextImage

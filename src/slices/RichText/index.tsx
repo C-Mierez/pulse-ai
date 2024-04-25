@@ -1,13 +1,9 @@
-import type { Content } from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import {
-    PrismicRichText,
-    SliceComponentProps,
-    JSXMapSerializer,
-} from "@prismicio/react";
-import Image from "next/image";
+import { PrismicNextLink } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import Bounded from "~/components/layout/bounded";
 
+import type { JSXMapSerializer, SliceComponentProps } from "@prismicio/react";
+import type { Content } from "@prismicio/client";
 const components: JSXMapSerializer = {
     hyperlink: ({ node, children }) => {
         return <PrismicNextLink field={node.data}>{children}</PrismicNextLink>;

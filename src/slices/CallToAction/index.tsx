@@ -1,9 +1,10 @@
-import { Content } from "@prismicio/client";
-import { PrismicText, SliceComponentProps } from "@prismicio/react";
+import { PrismicText } from "@prismicio/react";
 import Bounded from "~/components/layout/bounded";
 import ButtonCTA from "~/components/shared/button-cta";
 import PlainLogo from "~/components/svg/plain-logo";
 
+import type { Content } from "@prismicio/client";
+import type { SliceComponentProps } from "@prismicio/react";
 /**
  * Props for `CallToAction`.
  */

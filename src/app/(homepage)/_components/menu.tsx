@@ -1,6 +1,7 @@
 "use client";
 
-import { asLink, Content } from "@prismicio/client";
+import { asLink } from "@prismicio/client";
+import type { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";

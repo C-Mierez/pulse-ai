@@ -1,14 +1,12 @@
-import { Content, isFilled } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import {
-    PrismicRichText,
-    PrismicText,
-    SliceComponentProps,
-} from "@prismicio/react";
+import { PrismicRichText, PrismicText } from "@prismicio/react";
 import Bounded from "~/components/layout/bounded";
 import { cn } from "~/lib/utils";
 import { createClient } from "~/prismicio";
 
+import type { Content } from "@prismicio/client";
+import type { SliceComponentProps } from "@prismicio/react";
 /**
  * Props for `CaseStudies`.
  */

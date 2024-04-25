@@ -1,15 +1,4 @@
-import { Content } from "@prismicio/client";
-import {
-    PrismicRichText,
-    PrismicText,
-    SliceComponentProps,
-} from "@prismicio/react";
-import Image from "next/image";
-import StarBackground from "~/app/(homepage)/_components/start-background";
-import Bounded from "~/components/layout/bounded";
-import background from "./background.jpg";
-import React from "react";
-import StylizedLogo from "~/components/svg/stylized-logo";
+import { PrismicText } from "@prismicio/react";
 import {
     CodeSandboxLogoIcon,
     FigmaLogoIcon,
@@ -17,10 +6,18 @@ import {
     GitHubLogoIcon,
     LinkedInLogoIcon,
     ModulzLogoIcon,
-    VercelLogoIcon,
 } from "@radix-ui/react-icons";
+import Image from "next/image";
+import React from "react";
+import StarBackground from "~/app/(homepage)/_components/start-background";
+import Bounded from "~/components/layout/bounded";
+import StylizedLogo from "~/components/svg/stylized-logo";
 import { cn } from "~/lib/utils";
 
+import background from "./background.jpg";
+
+import type { Content } from "@prismicio/client";
+import type { SliceComponentProps } from "@prismicio/react";
 /**
  * Props for `Integrations`.
  */

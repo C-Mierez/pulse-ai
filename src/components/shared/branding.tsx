@@ -1,5 +1,3 @@
-import SiteLogo from "../svg/site-logo";
-
 export default function Branding() {
     return (
         <>

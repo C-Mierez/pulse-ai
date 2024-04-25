@@ -1,10 +1,11 @@
 "use client";
 
-import { PrismicNextLink, PrismicNextLinkProps } from "@prismicio/next";
+import { PrismicNextLink } from "@prismicio/next";
 import { useRef } from "react";
-import { useGSAP, gsap } from "~/lib/gsap";
+import { gsap, useGSAP } from "~/lib/gsap";
 import { cn } from "~/lib/utils";
 
+import type { PrismicNextLinkProps } from "@prismicio/next";
 export default function ButtonCTA({
     className,
     ...props
