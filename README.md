@@ -28,3 +28,7 @@ Given that all content is managed by Prismic, the website preserves consistency 
 - [ ] Showcase cards hover effect on image (zoom in and color)
 - [ ] Showcase icon spin animation
 - [ ] Showcase heading enter animation from behind first card
+- [ ] Case Study image hover zoom in
+- [ ] Case Study image enter animation
+- [ ] Add magnetic buttons to socials
+- [ ] Add border illumination on bento boxes based on mouse position
