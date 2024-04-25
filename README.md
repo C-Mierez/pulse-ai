@@ -9,6 +9,15 @@ The key aspects of this website are:
 - Use of GSAP for modern animations and transitions.
 - (Potentially) Use of Tailwind v4 unstable version to try out the new features. 
 
+### Experience using Prismic
+The use of Prismic CMS allows for easy content management and creation of new slices, variations or entire pages. We programmatically create the pages and components based on the content fetched from Prismic, which allows content managers who are not necessarily developers to create and update the website without needing to touch the codebase.
+
+Using Prismic with Next.js Server Components reduces the performance implications of a CMS, as all data fetching and rendering is done on the server side. This means that the website has a decently fast initial load time.
+
+Given that all content is managed by Prismic, the website preserves consistency pretty well. Content that belongs to a different page but can be previewed on another page is easily accessible and thus changes on one page can be reflected on another page without needing to update the codebase.
+
+
+
 ### TODO Animations
 - [ ] Website loader
 - [ ] Page transition
