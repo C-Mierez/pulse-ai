@@ -46,7 +46,7 @@ export default function ButtonCTA({
             ref={buttonRef}
             {...props}
             className={cn(
-                "radial-bg hover-glow relative block max-w-fit rounded-lg px-6 py-2 text-center font-light",
+                "radial-bg hover-glow relative block max-w-fit rounded-lg px-6 py-2 text-center text-lg font-light",
                 className,
             )}
             onPointerDown={animOnTapDown}

@@ -75,7 +75,7 @@
     }
 
     .glass-surface::before {
-        @apply absolute -inset-3 -z-10 rounded-lg border border-border bg-primary-900 backdrop-blur-md;
+        @apply absolute -inset-3 -z-10 rounded-lg border border-primary-600/60 bg-primary-600/45 backdrop-blur-md;
         content: "";
     }
 

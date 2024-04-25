@@ -48,7 +48,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     )}
                 {isFilled.image(slice.primary.image) && (
                     <div className="glass-surface mt-8 w-fit">
-                        <div className="absolute inset-0 -z-10 bg-accent/30 blur-2xl filter"></div>
+                        <div className="absolute inset-0 z-[-11] bg-accent/45 blur-2xl filter"></div>
                         <PrismicNextImage
                             field={slice.primary.image}
                             className="
