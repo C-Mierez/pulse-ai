@@ -8,6 +8,7 @@ import { components } from "~/slices";
 import PulseGrid from "../../_components/pulse-grid";
 
 import type { Metadata } from "next";
+import { asText } from "@prismicio/client";
 type Params = { uid: string };
 
 export default async function CompanyPage({ params }: { params: Params }) {
@@ -60,7 +61,7 @@ export async function generateMetadata({
         .catch(() => notFound());
 
     return {
-        title: page.data.meta_title,
+        title: `${page.data.meta_title ?? asText(page.data.company) + " Case Study"}`,
         description: page.data.meta_description,
     };
 }
