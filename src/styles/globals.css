@@ -113,3 +113,14 @@
 li {
     list-style: none;
 }
+
+::selection {
+    color: hsl(var(--background));
+    background: hsl(var(--accent-light), 80%);
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    color: hsl(var(--background));
+    background: hsl(var(--accent-light), 80%);
+}
