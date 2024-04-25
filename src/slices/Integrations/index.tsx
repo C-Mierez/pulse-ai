@@ -1,19 +1,10 @@
 import { PrismicText } from "@prismicio/react";
-import {
-    CodeSandboxLogoIcon,
-    FigmaLogoIcon,
-    FramerLogoIcon,
-    GitHubLogoIcon,
-    LinkedInLogoIcon,
-    ModulzLogoIcon,
-} from "@radix-ui/react-icons";
 import Image from "next/image";
 import React from "react";
 import StarBackground from "~/app/(homepage)/_components/start-background";
 import Bounded from "~/components/layout/bounded";
-import StylizedLogo from "~/components/svg/stylized-logo";
-import { cn } from "~/lib/utils";
 
+import AnimatedIntegrationsContent from "./animated-content";
 import background from "./background.jpg";
 
 import type { Content } from "@prismicio/client";
@@ -27,21 +18,10 @@ export type IntegrationsProps = SliceComponentProps<Content.IntegrationsSlice>;
  * Component for "Integrations" Slices.
  */
 const Integrations = ({ slice }: IntegrationsProps): JSX.Element => {
-    const icons = {
-        linkedin: <LinkedInLogoIcon className="size-6 md:size-9 lg:size-12" />,
-        modulz: <ModulzLogoIcon className="size-6 md:size-9 lg:size-12" />,
-        github: <GitHubLogoIcon className="size-6 md:size-9 lg:size-12" />,
-        figma: <FigmaLogoIcon className="size-6 md:size-9 lg:size-12" />,
-        sandbox: (
-            <CodeSandboxLogoIcon className="size-6 md:size-9 lg:size-12" />
-        ),
-        framer: <FramerLogoIcon className="size-6 md:size-9 lg:size-12" />,
-    };
-
     return (
         <section className="relative overflow-clip">
             <Image
-                className="absolute h-full w-full object-cover hue-rotate-[180deg] filter"
+                className="absolute h-full w-full object-cover hue-rotate-[185deg] filter"
                 src={background}
                 alt="background"
                 quality={90}
@@ -64,40 +44,7 @@ const Integrations = ({ slice }: IntegrationsProps): JSX.Element => {
                         <PrismicText field={slice.primary.subheading} />
                     </p>
 
-                    <div className="mt-20 flex items-center max-md:flex-col">
-                        {slice.items.map((item, index) => {
-                            return (
-                                <React.Fragment key={index}>
-                                    {index ===
-                                        Math.floor(slice.items.length / 2) && (
-                                        <>
-                                            <div className="hue-rotate-[185deg] filter">
-                                                <StylizedLogo />
-                                            </div>
-                                            <div className="signal-line rotate-180 bg-gradient-to-t"></div>
-                                        </>
-                                    )}
-                                    <div className="pulsing-icon flex aspect-square shrink-0 items-center justify-center rounded-full border border-primary-300/50 bg-primary-300/50 p-3 text-3xl text-foreground opacity-50 md:text-4xl lg:text-5xl">
-                                        {item.icon && icons[item.icon]}
-                                    </div>
-
-                                    {index !== slice.items.length - 1 && (
-                                        <div
-                                            className={cn(
-                                                "signal-line",
-                                                index >=
-                                                    Math.floor(
-                                                        slice.items.length / 2,
-                                                    )
-                                                    ? "rotate-180"
-                                                    : "",
-                                            )}
-                                        ></div>
-                                    )}
-                                </React.Fragment>
-                            );
-                        })}
-                    </div>
+                    <AnimatedIntegrationsContent slice={slice} />
                 </div>
             </Bounded>
         </section>

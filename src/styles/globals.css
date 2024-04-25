@@ -63,7 +63,7 @@
         background-image: linear-gradient(
             var(--rotation),
             rgba(255, 255, 255, 0) 50%,
-            hsl(var(--accent)) 50%,
+            hsl(var(--accent-light), 0.7) 50%,
             rgba(255, 255, 255, 0) 70%
         );
         background-size: 400% 400%;
