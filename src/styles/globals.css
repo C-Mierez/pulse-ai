@@ -61,7 +61,7 @@
     }
 
     .glass-surface::before {
-        @apply bg-primary-900 absolute -inset-3 -z-10 rounded-lg border border-border backdrop-blur-md;
+        @apply absolute -inset-3 -z-10 rounded-lg border border-border bg-primary-900 backdrop-blur-md;
         content: "";
     }
 
@@ -92,7 +92,7 @@
         background-image: linear-gradient(
             -75deg,
             hsla(var(--primary-800), 0.5) calc(var(--x) + 20%),
-            hsla(var(--accent-light), 0.75) calc(var(--x) + 30%),
+            hsla(var(--accent-light), 0.5) calc(var(--x) + 30%),
             hsla(var(--primary-800), 0.5) calc(var(--x) + 100%)
         );
         mask:
