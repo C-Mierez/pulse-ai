@@ -1,0 +1,55 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Heard"
+						}
+					}
+				]
+			},
+			"subheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Excepteur veniam commodo est ad. Laboris tempor et do laboris eiusmod quis duis amet ex aute sit adipisicing irure anim. Nisi adipisicing cillum enim sint tempor incididunt officia dolore consequat in irure."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"case_study",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "DocumentLink",
+								"id": "mock_document_id"
+							}
+						}
+					],
+					[
+						"link_text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "kind",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]
