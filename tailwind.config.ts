@@ -30,6 +30,7 @@ const config = {
                 primary: {
                     DEFAULT: "hsl(var(--primary))",
                     200: "hsl(var(--primary-200))",
+                    300: "hsl(var(--primary-300))",
                     600: "hsl(var(--primary-600))",
                     800: "hsl(var(--primary-800))",
                     900: "hsl(var(--primary-900))",
@@ -48,8 +49,8 @@ const config = {
                     foreground: "hsl(var(--muted-foreground))",
                 },
                 accent: {
-                    DEFAULT: "hsl(var(--accent))",
-                    light: "hsl(var(--accent-light))",
+                    DEFAULT: "hsl(var(--accent), <alpha-value>)",
+                    light: "hsl(var(--accent-light), <alpha-value>)",
                     foreground: "hsl(var(--accent-foreground))",
                 },
                 popover: {

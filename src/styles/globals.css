@@ -15,15 +15,16 @@
 
         --primary: 0, 0%, 45.1%;
         --primary-200: 0, 0%, 89.8%;
+        --primary-300: 0, 0%, 83.1%;
         --primary-600: 0, 0%, 32.2%;
         --primary-800: 0, 0%, 14.9%;
         --primary-900: 0, 0%, 9%;
         --primary-foreground: 240 5.9% 10%;
 
-        --secondary: 240 3.7% 15.9%;
+        --secondary: 0, 0%, 83.1%;
         --secondary-foreground: 0, 0%, 98%;
 
-        --muted: 240 3.7% 15.9%;
+        --muted: 0, 0%, 83.1%;
         --muted-foreground: 240 5% 64.9%;
 
         --accent-light: 50, 100%, 52%;
@@ -33,7 +34,7 @@
         --destructive: 0 84% 60%;
         --destructive-foreground: 0, 0%, 98%;
 
-        --border: 240 2% 12%;
+        --border: 0, 0%, 14.9%;
         --input: 240 2% 18%;
         --ring: 230 48% 40%;
         --radius: 0.3rem;
@@ -52,6 +53,16 @@
 @layer components {
     .hover-glow {
         @apply text-primary-200 transition-colors duration-200 ease-in-out hover:text-foreground;
+    }
+
+    /* Glass Surface */
+    .glass-surface {
+        position: relative;
+    }
+
+    .glass-surface::before {
+        @apply bg-primary-900 absolute -inset-3 -z-10 rounded-lg border border-border backdrop-blur-md;
+        content: "";
     }
 
     /* CTA Button Animations */
@@ -81,7 +92,7 @@
         background-image: linear-gradient(
             -75deg,
             hsla(var(--primary-800), 0.5) calc(var(--x) + 20%),
-            hsla(var(--primary-600), 1) calc(var(--x) + 30%),
+            hsla(var(--accent-light), 0.75) calc(var(--x) + 30%),
             hsla(var(--primary-800), 0.5) calc(var(--x) + 100%)
         );
         mask:
