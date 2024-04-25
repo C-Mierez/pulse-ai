@@ -4,7 +4,11 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = HeroSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice =
+    | ShowcaseSlice
+    | BentoSlice
+    | HeroSlice
+    | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -182,6 +186,104 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Primary content in *Bento → Primary*
+ */
+export interface BentoSliceDefaultPrimary {
+    /**
+     * Heading field in *Bento → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Italic for Gradient text
+     * - **API ID Path**: bento.primary.heading
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    heading: prismic.RichTextField;
+
+    /**
+     * Subheading field in *Bento → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bento.primary.body
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    body: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Bento → Items*
+ */
+export interface BentoSliceDefaultItem {
+    /**
+     * Title field in *Bento → Items*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bento.items[].title
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    title: prismic.TitleField;
+
+    /**
+     * Body field in *Bento → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bento.items[].content
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    content: prismic.RichTextField;
+
+    /**
+     * Image field in *Bento → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bento.items[].image
+     * - **Documentation**: https://prismic.io/docs/field#image
+     */
+    image: prismic.ImageField<never>;
+
+    /**
+     * Wide field in *Bento → Items*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: bento.items[].wide
+     * - **Documentation**: https://prismic.io/docs/field#boolean
+     */
+    wide: prismic.BooleanField;
+}
+
+/**
+ * Default variation for Bento Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BentoSliceDefault = prismic.SharedSliceVariation<
+    "default",
+    Simplify<BentoSliceDefaultPrimary>,
+    Simplify<BentoSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Bento*
+ */
+type BentoSliceVariation = BentoSliceDefault;
+
+/**
+ * Bento Shared Slice
+ *
+ * - **API ID**: `bento`
+ * - **Description**: Bento
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BentoSlice = prismic.SharedSlice<"bento", BentoSliceVariation>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -308,6 +410,117 @@ export type RichTextSlice = prismic.SharedSlice<
     RichTextSliceVariation
 >;
 
+/**
+ * Primary content in *Showcase → Primary*
+ */
+export interface ShowcaseSliceDefaultPrimary {
+    /**
+     * Heading field in *Showcase → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: showcase.primary.heading
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    heading: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Showcase → Items*
+ */
+export interface ShowcaseSliceDefaultItem {
+    /**
+     * Title field in *Showcase → Items*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: showcase.items[].title
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    title: prismic.TitleField;
+
+    /**
+     * Body field in *Showcase → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: showcase.items[].body
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    body: prismic.RichTextField;
+
+    /**
+     * Button Link field in *Showcase → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: showcase.items[].button_link
+     * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+     */
+    button_link: prismic.LinkField;
+
+    /**
+     * Button Label field in *Showcase → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: showcase.items[].button_label
+     * - **Documentation**: https://prismic.io/docs/field#key-text
+     */
+    button_label: prismic.KeyTextField;
+
+    /**
+     * Image field in *Showcase → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: showcase.items[].image
+     * - **Documentation**: https://prismic.io/docs/field#image
+     */
+    image: prismic.ImageField<never>;
+
+    /**
+     * Icon field in *Showcase → Items*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **Default Value**: gear
+     * - **API ID Path**: showcase.items[].icon
+     * - **Documentation**: https://prismic.io/docs/field#select
+     */
+    icon: prismic.SelectField<"gear" | "cycle", "filled">;
+}
+
+/**
+ * Default variation for Showcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseSliceDefault = prismic.SharedSliceVariation<
+    "default",
+    Simplify<ShowcaseSliceDefaultPrimary>,
+    Simplify<ShowcaseSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Showcase*
+ */
+type ShowcaseSliceVariation = ShowcaseSliceDefault;
+
+/**
+ * Showcase Shared Slice
+ *
+ * - **API ID**: `showcase`
+ * - **Description**: Showcase
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseSlice = prismic.SharedSlice<
+    "showcase",
+    ShowcaseSliceVariation
+>;
+
 declare module "@prismicio/client" {
     interface CreateClient {
         (
@@ -325,6 +538,11 @@ declare module "@prismicio/client" {
             SettingsDocumentData,
             SettingsDocumentDataNavigationItem,
             AllDocumentTypes,
+            BentoSlice,
+            BentoSliceDefaultPrimary,
+            BentoSliceDefaultItem,
+            BentoSliceVariation,
+            BentoSliceDefault,
             HeroSlice,
             HeroSliceDefaultPrimary,
             HeroSliceVariation,
@@ -333,6 +551,11 @@ declare module "@prismicio/client" {
             RichTextSliceDefaultPrimary,
             RichTextSliceVariation,
             RichTextSliceDefault,
+            ShowcaseSlice,
+            ShowcaseSliceDefaultPrimary,
+            ShowcaseSliceDefaultItem,
+            ShowcaseSliceVariation,
+            ShowcaseSliceDefault,
         };
     }
 }
