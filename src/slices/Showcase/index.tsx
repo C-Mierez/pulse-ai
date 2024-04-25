@@ -6,6 +6,8 @@ import Bounded from "~/components/layout/bounded";
 import ButtonCTA from "~/components/shared/button-cta";
 import { cn } from "~/lib/utils";
 
+import AnimatedShowcaseContent from "./animated-content";
+
 import type { Content } from "@prismicio/client";
 import type { SliceComponentProps } from "@prismicio/react";
 const icons = {
@@ -36,18 +38,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
             {isHeadingFilled && (
                 <>
                     <div className="glow absolute -z-10 aspect-square w-full max-w-xl rounded-full bg-accent/20 blur-3xl filter"></div>
-                    <span>
-                        <PrismicRichText
-                            field={slice.primary.heading}
-                            components={{
-                                heading2: ({ children }) => (
-                                    <h2 className="text-balance text-center text-7xl max-md:text-5xl">
-                                        {children}
-                                    </h2>
-                                ),
-                            }}
-                        />
-                    </span>
+                    <AnimatedShowcaseContent slice={slice} />
                 </>
             )}
 
