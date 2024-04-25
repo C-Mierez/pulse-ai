@@ -1,5 +1,4 @@
 import PulseGrid from "~/app/(homepage)/_components/pulse-grid";
-import Bounded from "~/components/layout/bounded";
 
 import AnimatedHeroContent from "./animated-content";
 

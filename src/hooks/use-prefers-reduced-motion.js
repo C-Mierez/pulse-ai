@@ -14,7 +14,7 @@ export default function usePrefersReducedMotion() {
         React.useState(getInitialState);
     React.useEffect(() => {
         const mediaQueryList = window.matchMedia(QUERY);
-        // @ts-ignore
+        // @ts-expect-error This is copyypasted so I dont care
         const listener = (event) => {
             setPrefersReducedMotion(!event.matches);
         };

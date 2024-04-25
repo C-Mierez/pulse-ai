@@ -1,13 +1,5 @@
 "use client";
 
-import { Content } from "@prismicio/client";
-import { PrismicRichText } from "@prismicio/react";
-import React from "react";
-import { useRef } from "react";
-import StylizedLogo from "~/components/svg/stylized-logo";
-import usePrefersReducedMotion from "~/hooks/use-prefers-reduced-motion";
-import { gsap, useGSAP, ScrollTrigger } from "~/lib/gsap";
-import { cn } from "~/lib/utils";
 import {
     CodeSandboxLogoIcon,
     FigmaLogoIcon,
@@ -16,7 +8,14 @@ import {
     LinkedInLogoIcon,
     ModulzLogoIcon,
 } from "@radix-ui/react-icons";
+import React from "react";
+import { useRef } from "react";
+import StylizedLogo from "~/components/svg/stylized-logo";
+import usePrefersReducedMotion from "~/hooks/use-prefers-reduced-motion";
+import { gsap, useGSAP } from "~/lib/gsap";
+import { cn } from "~/lib/utils";
 
+import type { Content } from "@prismicio/client";
 export default function AnimatedIntegrationsContent({
     slice,
 }: {
@@ -38,6 +37,10 @@ export default function AnimatedIntegrationsContent({
 
     useGSAP(
         () => {
+            if (prefersReducedMotion) {
+                return;
+            }
+
             const t1 = gsap.timeline({
                 repeat: -1,
             });

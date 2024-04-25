@@ -1,11 +1,11 @@
 "use client";
 
-import { Content } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import { useRef } from "react";
 import usePrefersReducedMotion from "~/hooks/use-prefers-reduced-motion";
-import { gsap, useGSAP, ScrollTrigger } from "~/lib/gsap";
+import { gsap, useGSAP } from "~/lib/gsap";
 
+import type { Content } from "@prismicio/client";
 export default function AnimatedShowcaseContent({
     slice,
 }: {
