@@ -8,3 +8,14 @@ The key aspects of this website are:
 - Localization 
 - Use of GSAP for modern animations and transitions.
 - (Potentially) Use of Tailwind v4 unstable version to try out the new features. 
+
+### TODO Animations
+- [ ] Website loader
+- [ ] Page transition
+- [ ] Hero section heading animation
+- [ ] Bento boxes enter animation from different sides
+- [ ] Shine effect on gradient text
+- [ ] Showcase cards image enter animation
+- [ ] Showcase cards hover effect on image (zoom in and color)
+- [ ] Showcase icon spin animation
+- [ ] Showcase heading enter animation from behind first card
