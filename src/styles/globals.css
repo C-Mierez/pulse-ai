@@ -55,6 +55,20 @@
         @apply text-primary-200 transition-colors duration-200 ease-in-out hover:text-foreground;
     }
 
+    /* Integrations connector */
+    .signal-line {
+        --rotation: 90deg;
+        @apply h-[20px] w-[1.5px] bg-gradient-to-t md:h-[1.5px] md:w-[30px] lg:w-[40px] xl:w-[50px];
+        background-color: hsla(0, 0%, 100%, 0.1);
+        background-image: linear-gradient(
+            var(--rotation),
+            rgba(255, 255, 255, 0) 50%,
+            hsl(var(--accent)) 50%,
+            rgba(255, 255, 255, 0) 70%
+        );
+        background-size: 400% 400%;
+    }
+
     /* Glass Surface */
     .glass-surface {
         position: relative;

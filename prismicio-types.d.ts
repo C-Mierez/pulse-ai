@@ -114,6 +114,7 @@ export type CaseStudyDocument<Lang extends string = string> =
     >;
 
 type PageDocumentDataSlicesSlice =
+    | IntegrationsSlice
     | CaseStudiesSlice
     | ShowcaseSlice
     | BentoSlice
@@ -559,6 +560,78 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Integrations → Primary*
+ */
+export interface IntegrationsSliceDefaultPrimary {
+    /**
+     * Heading field in *Integrations → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: integrations.primary.heading
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    heading: prismic.TitleField;
+
+    /**
+     * Subheading field in *Integrations → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: integrations.primary.subheading
+     * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+     */
+    subheading: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Integrations → Items*
+ */
+export interface IntegrationsSliceDefaultItem {
+    /**
+     * Icon field in *Integrations → Items*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: integrations.items[].icon
+     * - **Documentation**: https://prismic.io/docs/field#select
+     */
+    icon: prismic.SelectField<
+        "linkedin" | "modulz" | "github" | "figma" | "sandbox" | "framer"
+    >;
+}
+
+/**
+ * Default variation for Integrations Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IntegrationsSliceDefault = prismic.SharedSliceVariation<
+    "default",
+    Simplify<IntegrationsSliceDefaultPrimary>,
+    Simplify<IntegrationsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Integrations*
+ */
+type IntegrationsSliceVariation = IntegrationsSliceDefault;
+
+/**
+ * Integrations Shared Slice
+ *
+ * - **API ID**: `integrations`
+ * - **Description**: Integrations
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IntegrationsSlice = prismic.SharedSlice<
+    "integrations",
+    IntegrationsSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -842,6 +915,11 @@ declare module "@prismicio/client" {
             HeroSliceDefaultPrimary,
             HeroSliceVariation,
             HeroSliceDefault,
+            IntegrationsSlice,
+            IntegrationsSliceDefaultPrimary,
+            IntegrationsSliceDefaultItem,
+            IntegrationsSliceVariation,
+            IntegrationsSliceDefault,
             RichTextSlice,
             RichTextSliceDefaultPrimary,
             RichTextSliceVariation,
