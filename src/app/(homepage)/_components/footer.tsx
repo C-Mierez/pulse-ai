@@ -8,7 +8,7 @@ export default async function Footer() {
     const settings = await prismicClient.getSingle("settings");
 
     return (
-        <footer className="border-t border-primary p-4">
+        <footer className="border-t border-border p-4">
             <nav
                 className="flex items-center justify-between gap-2 max-md:flex-col"
                 aria-label="Footer"
