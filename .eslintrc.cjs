@@ -16,6 +16,7 @@ const config = {
         "@typescript-eslint/non-nullable-type-assertion-style": "off",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/consistent-type-imports": [
             "warn",
             {
@@ -30,14 +31,6 @@ const config = {
             },
         ],
         "@typescript-eslint/require-await": "off",
-        "@typescript-eslint/no-misused-promises": [
-            "error",
-            {
-                checksVoidReturn: {
-                    attributes: false,
-                },
-            },
-        ],
     },
 };
 module.exports = config;

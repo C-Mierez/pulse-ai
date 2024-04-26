@@ -3,7 +3,6 @@ import {
     DesktopIcon,
     GitHubLogoIcon,
     TwitterLogoIcon,
-    VercelLogoIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
 import Magnetic from "~/components/layout/magnetic";
@@ -35,11 +34,8 @@ export default async function Footer() {
                 </Link>
                 <ul className="flex w-fit gap-1 justify-self-center">
                     {settings.data.socials.map((item) => (
-                        <Magnetic>
-                            <li
-                                key={item.socials}
-                                className="rounded-lg p-4 transition-colors duration-200 ease-in-out hover:text-accent-light/85"
-                            >
+                        <Magnetic key={item.socials}>
+                            <li className="rounded-lg p-4 transition-colors duration-200 ease-in-out hover:text-accent-light/85">
                                 <PrismicNextLink field={item.link}>
                                     <span className="sr-only">
                                         {item.socials}

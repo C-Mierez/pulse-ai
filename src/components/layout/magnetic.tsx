@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { gsap, useGSAP } from "~/lib/gsap";
 
 export default function Magnetic({ children }: { children: JSX.Element }) {
