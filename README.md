@@ -26,6 +26,8 @@ Given that all content is managed by Prismic, the website preserves consistency 
 - [ ] Add more data to mobile nav menu, like a footer
 - [ ] Fill the Features page with something
 - [x] Add Lenis scroll ♥
+- [ ] Add a Back to Top prompt at the bottom of the page
+- [x] Add socials to CMS and place them on footer
 
 ### TODO Animations
 - [ ] Website loader
@@ -39,7 +41,7 @@ Given that all content is managed by Prismic, the website preserves consistency 
 - [ ] Showcase heading enter animation from behind first card
 - [ ] Case Study image hover zoom in
 - [ ] Case Study image enter animation
-- [ ] Add magnetic buttons to socials
+- [x] Add magnetic buttons to socials
 - [ ] Add border illumination on bento boxes based on mouse position
 - [ ] Animate nav menu
 - [ ] Add parallax to floating assets like images
