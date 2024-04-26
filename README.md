@@ -25,7 +25,7 @@ Given that all content is managed by Prismic, the website preserves consistency 
 - [ ] Add localization
 - [ ] Add more data to mobile nav menu, like a footer
 - [ ] Fill the Features page with something
-- [ ] Add Lenis scroll <3
+- [x] Add Lenis scroll ♥
 
 ### TODO Animations
 - [ ] Website loader
