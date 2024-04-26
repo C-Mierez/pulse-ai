@@ -229,6 +229,31 @@ export interface SettingsDocumentDataNavigationItem {
 }
 
 /**
+ * Item in *Settings → Socials*
+ */
+export interface SettingsDocumentDataSocialsItem {
+    /**
+     * link field in *Settings → Socials*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.socials[].link
+     * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+     */
+    link: prismic.LinkField;
+
+    /**
+     * socials field in *Settings → Socials*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.socials[].socials
+     * - **Documentation**: https://prismic.io/docs/field#select
+     */
+    socials: prismic.SelectField<"twitter" | "github" | "youtube">;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -277,6 +302,17 @@ interface SettingsDocumentData {
     navigation: prismic.GroupField<
         Simplify<SettingsDocumentDataNavigationItem>
     >;
+
+    /**
+     * Socials field in *Settings*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.socials[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/field#group
+     */
+    socials: prismic.GroupField<Simplify<SettingsDocumentDataSocialsItem>>;
 }
 
 /**
@@ -966,6 +1002,7 @@ declare module "@prismicio/client" {
             SettingsDocument,
             SettingsDocumentData,
             SettingsDocumentDataNavigationItem,
+            SettingsDocumentDataSocialsItem,
             AllDocumentTypes,
             BentoSlice,
             BentoSliceDefaultPrimary,

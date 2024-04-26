@@ -1,66 +1,91 @@
 {
-  "format": "custom",
-  "id": "settings",
-  "label": "Settings",
-  "repeatable": false,
-  "status": true,
-  "json": {
-    "Main": {
-      "site_title": {
-        "type": "Text",
-        "config": {
-          "label": "Site title",
-          "placeholder": ""
-        }
-      },
-      "meta_description": {
-        "type": "Text",
-        "config": {
-          "label": "Meta Description",
-          "placeholder": ""
-        }
-      },
-      "fallback_og_image": {
-        "type": "Image",
-        "config": {
-          "label": "Fallback OG Image",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
-      "navigation": {
-        "type": "Group",
-        "config": {
-          "label": "Navigation",
-          "repeat": true,
-          "fields": {
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "Link",
-                "placeholder": "",
-                "select": null
-              }
+    "format": "custom",
+    "id": "settings",
+    "label": "Settings",
+    "repeatable": false,
+    "status": true,
+    "json": {
+        "Main": {
+            "site_title": {
+                "type": "Text",
+                "config": {
+                    "label": "Site title",
+                    "placeholder": ""
+                }
             },
-            "label": {
-              "type": "Text",
-              "config": {
-                "label": "Label",
-                "placeholder": ""
-              }
+            "meta_description": {
+                "type": "Text",
+                "config": {
+                    "label": "Meta Description",
+                    "placeholder": ""
+                }
             },
-            "cta_button": {
-              "type": "Boolean",
-              "config": {
-                "label": "CTA Button",
-                "default_value": false,
-                "placeholder_true": "true",
-                "placeholder_false": "false"
-              }
+            "fallback_og_image": {
+                "type": "Image",
+                "config": {
+                    "label": "Fallback OG Image",
+                    "constraint": {},
+                    "thumbnails": []
+                }
+            },
+            "navigation": {
+                "type": "Group",
+                "config": {
+                    "label": "Navigation",
+                    "repeat": true,
+                    "fields": {
+                        "link": {
+                            "type": "Link",
+                            "config": {
+                                "label": "Link",
+                                "placeholder": "",
+                                "select": null
+                            }
+                        },
+                        "label": {
+                            "type": "Text",
+                            "config": {
+                                "label": "Label",
+                                "placeholder": ""
+                            }
+                        },
+                        "cta_button": {
+                            "type": "Boolean",
+                            "config": {
+                                "label": "CTA Button",
+                                "default_value": false,
+                                "placeholder_true": "true",
+                                "placeholder_false": "false"
+                            }
+                        }
+                    }
+                }
+            },
+            "socials": {
+                "type": "Group",
+                "config": {
+                    "label": "Socials",
+                    "repeat": true,
+                    "fields": {
+                        "link": {
+                            "type": "Link",
+                            "config": {
+                                "label": "link",
+                                "placeholder": "",
+                                "select": null
+                            }
+                        },
+                        "socials": {
+                            "type": "Select",
+                            "config": {
+                                "label": "socials",
+                                "placeholder": "",
+                                "options": ["twitter", "github", "youtube"]
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 }
