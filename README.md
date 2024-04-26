@@ -20,8 +20,8 @@ One thing to note, however, is that once deployed on Vercel, all the content is 
 Given that all content is managed by Prismic, the website preserves consistency pretty well. Content that belongs to a different page but can be previewed on another page is easily accessible and thus changes on one page can be reflected on another page without needing to update the codebase.
 
 ### TODO
-- [ ] Fix lack of global padding on small screens
-- [ ] Add responsive layout
+- [x] Add responsive layout
+- [x] Fix lack of global padding on small screens
 - [ ] Add localization
 - [ ] Add more data to mobile nav menu, like a footer
 - [ ] Fill the Features page with something
