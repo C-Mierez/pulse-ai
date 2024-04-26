@@ -36,7 +36,7 @@ const CaseStudies = async ({
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
         >
-            <h2 className="max-w-2xl text-balance text-center text-7xl max-md:text-5xl">
+            <h2 className="max-w-2xl text-balance text-center text-7xl max-md:text-4xl">
                 <PrismicText field={slice.primary.heading} />
             </h2>
 
@@ -50,15 +50,15 @@ const CaseStudies = async ({
                         return (
                             <div
                                 key={caseStudy.id}
-                                className="max-md:grid>-cols-1 relative grid grid-cols-3 gap-6 opacity-85 transition-opacity duration-300 ease-in-out hover:cursor-pointer hover:opacity-100 "
+                                className="relative grid grid-cols-3 gap-6 rounded-lg p-4 opacity-85 transition-opacity duration-300 ease-in-out hover:cursor-pointer hover:opacity-100 max-md:grid-cols-1  "
                             >
-                                <div className="col-span-1 flex flex-col justify-center gap-6">
+                                <div className="col-span-1 flex flex-col justify-center gap-6 ">
                                     <h3 className="text-4xl">
                                         <PrismicText
                                             field={caseStudy.data.company}
                                         ></PrismicText>
                                     </h3>
-                                    <div className="max-w-md">
+                                    <div className="prose prose-invert max-w-md">
                                         <PrismicRichText
                                             field={caseStudy.data.description}
                                         ></PrismicRichText>

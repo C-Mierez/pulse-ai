@@ -49,7 +49,7 @@ export default function AnimatedShowcaseContent({
                 field={slice.primary.heading}
                 components={{
                     heading2: ({ children }) => (
-                        <h2 className="text-balance text-center text-7xl max-md:text-5xl">
+                        <h2 className="text-balance text-center text-7xl max-md:text-4xl">
                             {children}
                         </h2>
                     ),

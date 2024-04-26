@@ -27,7 +27,7 @@ const Bento = ({ slice }: BentoProps): JSX.Element => {
                     components={{
                         heading2: ({ children }) => {
                             return (
-                                <h2 className="text-balanced text-7xl max-md:text-5xl">
+                                <h2 className="text-balanced text-7xl max-md:text-4xl">
                                     {children}
                                 </h2>
                             );
@@ -46,25 +46,27 @@ const Bento = ({ slice }: BentoProps): JSX.Element => {
                     <PrismicRichText field={slice.primary.body} />
                 </div>
 
-                <ul className="max-md:grid-rows-[auto, auto, auto] mt-8 grid max-w-5xl grid-cols-3 gap-10 p-3">
+                <ul className="max-md:grid-rows-[auto, auto, auto] mt-8 grid max-w-5xl gap-8 p-3 max-md:gap-4 md:grid-cols-3">
                     {slice.items.map((item) => (
                         <div
                             key={asText(item.title)}
                             className={cn(
-                                "glass-surface row-span-3 grid-rows-subgrid gap-4 rounded-lg bg-background p-3 text-left",
+                                "glass-surface row-span-3 grid-rows-subgrid rounded-lg text-left max-md:place-items-center max-md:text-center",
                                 item.wide ? "md:col-span-2" : "md:col-span-1",
                             )}
                         >
-                            <h3 className="text-3xl">
-                                <PrismicText field={item.title} />
-                            </h3>
-                            <p className="mb-4 mt-2 max-w-md text-balance text-muted">
-                                <PrismicText field={item.content} />
-                            </p>
-                            <PrismicNextImage
-                                field={item.image}
-                                className="max-h-36 w-auto"
-                            />
+                            <div className="flex h-full flex-col rounded-lg bg-background p-3">
+                                <h3 className="text-3xl">
+                                    <PrismicText field={item.title} />
+                                </h3>
+                                <p className="prose prose-invert mb-4 mt-2 max-md:text-balance">
+                                    <PrismicText field={item.content} />
+                                </p>
+                                <PrismicNextImage
+                                    field={item.image}
+                                    className="w-auto flex-1 max-md:mx-auto"
+                                />
+                            </div>
                         </div>
                     ))}
                 </ul>

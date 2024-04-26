@@ -15,7 +15,7 @@ export default function Bounded({
     return (
         <Comp
             className={cn(
-                "mx-auto max-w-7xl py-24 first:pt-12 max-md:py-12",
+                "mx-auto max-w-7xl py-24 first:pt-12 max-md:px-4 max-md:py-12",
                 className,
             )}
             {...props}

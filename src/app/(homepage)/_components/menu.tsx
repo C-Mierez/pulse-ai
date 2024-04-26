@@ -35,7 +35,7 @@ export default function Menu(props: MenuProps) {
 
             <div
                 className={cn(
-                    "fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-6 bg-background px-6 py-8 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
+                    "fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-6 bg-background p-4 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
                     isOpen ? "translate-x-0" : "translate-x-full",
                 )}
             >

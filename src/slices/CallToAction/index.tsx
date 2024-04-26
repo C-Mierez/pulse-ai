@@ -22,7 +22,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         >
             <div className="glow absolute -z-10 aspect-square w-full max-w-sm rounded-full bg-accent-light/25 blur-[160px] filter"></div>
 
-            <div className="glass-surface rounded-lg bg-gradient-to-b from-primary-900 to-accent/15 p-4">
+            <div className="glass-surface rounded-lg bg-gradient-to-b from-primary-900 to-accent/20 p-4">
                 <PlainLogo />
             </div>
 

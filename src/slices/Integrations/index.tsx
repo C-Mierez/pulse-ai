@@ -36,7 +36,7 @@ const Integrations = ({ slice }: IntegrationsProps): JSX.Element => {
                 data-slice-variation={slice.variation}
             >
                 <div className="relative flex flex-col items-center gap-8">
-                    <h2 className="max-w-2xl text-balance text-center text-7xl max-md:text-5xl">
+                    <h2 className="max-w-2xl text-balance text-center text-7xl max-md:text-4xl">
                         <PrismicText field={slice.primary.heading} />
                     </h2>
 

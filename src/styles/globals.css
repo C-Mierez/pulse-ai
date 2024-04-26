@@ -63,7 +63,7 @@
         background-image: linear-gradient(
             var(--rotation),
             rgba(255, 255, 255, 0) 50%,
-            hsl(var(--accent-light), 0.7) 50%,
+            hsl(var(--accent), 0.55) 50%,
             rgba(255, 255, 255, 0) 70%
         );
         background-size: 400% 400%;
@@ -71,11 +71,11 @@
 
     /* Glass Surface */
     .glass-surface {
-        position: relative;
+        @apply relative p-3;
     }
 
     .glass-surface::before {
-        @apply absolute -inset-3 -z-10 rounded-lg border border-primary-600/60 bg-primary-600/45 backdrop-blur-md;
+        @apply absolute inset-0 -z-10 rounded-lg border border-primary-600/60 bg-primary-600/45 backdrop-blur-md;
         content: "";
     }
 
@@ -130,11 +130,11 @@ li {
 
 ::selection {
     color: hsl(var(--background));
-    background: hsl(var(--accent-light), 80%);
+    background: hsl(var(--accent), 80%);
 }
 
 ::-moz-selection {
     /* Code for Firefox */
     color: hsl(var(--background));
-    background: hsl(var(--accent-light), 80%);
+    background: hsl(var(--accent), 80%);
 }

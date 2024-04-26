@@ -78,10 +78,10 @@ export default function AnimatedHeroContent({
         >
             <span
                 ref={boundedRef}
-                className="flex flex-col items-center gap-8 text-center"
+                className="flex w-full flex-col items-center gap-8 text-center"
             >
                 {isFilled.richText(slice.primary.heading) && (
-                    <h1 className="hero__heading text-balance text-7xl opacity-0 max-md:text-5xl">
+                    <h1 className="hero__heading text-balance text-7xl opacity-0 max-md:text-4xl">
                         <PrismicText field={slice.primary.heading} />
                     </h1>
                 )}
@@ -100,12 +100,11 @@ export default function AnimatedHeroContent({
                         </ButtonCTA>
                     )}
                 {isFilled.image(slice.primary.image) && (
-                    <div className="hero__image glass-surface mt-8 w-fit opacity-0">
-                        <div className="hero__glow absolute inset-0 z-[-11] bg-accent/45 blur-2xl filter"></div>
+                    <div className="hero__image glass-surface mt-8 opacity-0">
+                        <div className="hero__glow absolute inset-0 z-[-11] bg-accent/45 blur-2xl filter max-md:blur-lg"></div>
                         <PrismicNextImage
                             field={slice.primary.image}
-                            className="
-                         rounded-lg"
+                            className="rounded-lg"
                         />
                     </div>
                 )}
