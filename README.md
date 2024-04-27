@@ -20,18 +20,23 @@ One thing to note, however, is that once deployed on Vercel, all the content is 
 Given that all content is managed by Prismic, the website preserves consistency pretty well. Content that belongs to a different page but can be previewed on another page is easily accessible and thus changes on one page can be reflected on another page without needing to update the codebase.
 
 ### Internationalization / Localization
-In the attempt of adding localization to the website, I stumbled upon a few hurdles, which prompted me to figure out my own workaround while trying to maintain efficiency and standards in the codebase, especially when it comes to avoiding sacrificing Server Component benefits.
+In the attempt of adding localization to the website, I stumbled upon a few hurdles, which prompted me to figure out my own workaround while trying to maintain efficiency and a clean codebase, especially when it comes to avoiding sacrificing Server Component benefits.
 
-Prismic provides a fantastic way to manage the language of all pages / documents from its dashboard, which makes the translation and management of it very easy. Modifications to the codebase had to be made in order to use this content:
-- Locales is determined through the use of i18n routes. Routes need to be modified to incorporate a `lang` slug in the URL. In this case, I chose to prefix all routes with the language slug.
-- All "SliceZone" pages had to be modified so they checked what locale was selected. This was done by making sure a new  `lang` 
-parameter was passed when fetching the Prismic document.
-- Static site generation had to be updated so it was aware of the existence of multiple locales. It now fetches every single document in every locale and generates the pages accordingly. (Of course, this is only done once and is cached server-side)
+Prismic provides a fantastic way to manage the language of all pages / documents from its dashboard, which makes the translation and management of it very easy. Some modifications to the codebase have to be made in order to use this localized content:
+- Locales are determined through the use of i18n routes. `prismicio.ts` Routes need to be modified to incorporate a `lang` slug in the URL. In this case, I chose to prefix all routes with the language slug.
 - All routes had to be moved inside a new `[lang]` directory, to comply with Next.js app router.
+- All "SliceZone" pages had to be modified so they checked what locale was selected. This was done by making sure the new  `lang` 
+url parameter was passed when fetching the Prismic document.
+- Static site generation had to be updated so it was aware of the existence of multiple locales. It now fetches every single document in every locale and generates the pages accordingly. (Of course, this is only done once and is cached server-side)
   
-At this point, the website is fully functional in multiple languages. The only thing that is missing is the ability to switch languages on the website itself, as currently it can only be done by manually changing the URL. The implementation of such a switch was quite straight-forward, though to ensure consistency, I made sure fetch alternative content
+At this point, and after filling in all the new alternate pages on the Prismic dashboard, the content is fully available in multiple languages. 
 
-In order to implement global language switching on components such as the Footer or Header (which are not tied to any specific document), and to preserve them as Server Components, I decided to use Next.js `cache` to create and memoize a server-only storage which the Layout component could store the lang value in, and allow for others to access it later on, as a clear way to avoid prop drilling. With this data, these components have more information about what language is currently being used and thus can make requests to Prismic with the correct locale.
+Now the only thing that is missing is the ability to switch languages on the website itself, as at this point it can only be done by manually changing the URL. The implementation of such a switch on every particular page is pretty straight-forward, however I wanted to have a global switch on the Header / Footer instead. Unfortunately this was nowhere near as trivial as I  would have thought, since locales are tied to the documents themselves, and the Header / Footer are completely independent to them and to the routes. So I tried a few ideas:
+- Given that routes for Prismic pages follow the shape of `/:lang/.../[uid]` I figured I could use the `uid` to fetch the document get its available locales. However, I then found out fetching documents requires specifying a document `type` as well as its `uid`, and there was no way for me to obtain this data from the URL. Given that fetching from Prismic is recommended to be done server-side, I did not have the option to use client-side state management to store the Slice data either, so identifying the current document from the Header / Footer was not possible, at least this way.  
+ 
+- I created a switch that would only fetch available locales from the Homepage document, and thus would always link to the Homepage with its corresponding target locale. Given the precondition that all routes include the i18n slug, I used the middleware to identify changes in the lang from the incoming url vs the next url. When a change was detected, the user would be redirected to the same page they were at but with the new lang slug. So, instead of going to the Homepage with a new language, the would stay on the same page they were at but with the new language. Ex: `referer:/en/features incoming: /es/ redirectTo:/es/features` Hacky? Yes. Ugly? Quite a bit. But it worked. And I would have kept it if it wasn't for the fact that my current Prismic schema allows for translated route paths, so pages in different languages can have differently named routes which breaks this solution.  
+
+In the end, I decided to use Next.js `cache` to create and memoize a server-only Map which the Layout component could store the `lang` value in fetched from the URL slug, and allow for other server components such as Header / Footer to access it later on. (And this also makes things cleaner as it avoids prop drilling to access the value). Now having access to this data, the Header / Footer will correctly show an indicator of the current language and provide a way to switch it. I took the decision to sacrifice same-page language-switching and instead opted to redirect to the Homepage of the target language.
 
 ## TODO
 - [x] Add responsive layout
@@ -42,6 +47,8 @@ In order to implement global language switching on components such as the Footer
 - [x] Add Lenis scroll ♥
 - [ ] Add a Back to Top prompt at the bottom of the page
 - [x] Add socials to CMS and place them on footer
+- [ ] Style scrollbar
+- [ ] Fix menu overflow on mobile
 
 ### TODO Animations
 - [ ] Website loader
