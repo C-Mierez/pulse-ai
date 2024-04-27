@@ -50,9 +50,6 @@
                 "fieldset": "Slice Zone",
                 "config": {
                     "choices": {
-                        "case_studies": {
-                            "type": "SharedSlice"
-                        },
                         "rich_text": {
                             "type": "SharedSlice"
                         }

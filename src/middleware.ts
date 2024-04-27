@@ -1,23 +1,41 @@
-import type { NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "./prismicio";
-import { createLocaleRedirect } from "@prismicio/next";
 
 export async function middleware(request: NextRequest) {
     const client = createClient();
+    const repository = await client.getRepository();
 
-    // Redirect to default locale if the locale is missing
-    const redirect = await createLocaleRedirect({ client, request });
+    // Get the locales from the repository
+    const locales = repository.languages.map((lang) => lang.id);
+    const defaultLocale = locales[0];
 
-    if (redirect) {
-        return redirect;
+    // Check if there is any supported locale in the pathname
+    const { pathname } = request.nextUrl;
+
+    const pathnameIsMissingLocale = locales.every((locale) => {
+        // Check if the pathname is missing the locale
+        return !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`;
+    });
+
+    // Redirect to default locale if there is no supported locale prefix
+    if (pathnameIsMissingLocale) {
+        return NextResponse.redirect(
+            new URL(`/${defaultLocale}${pathname}`, request.url),
+        );
     }
 }
 
-// Optionally, don't invoke Middleware on some paths
 export const config = {
-    // Regex fetched from Clerk's own documentation
-    // https://clerk.com/docs/references/nextjs/auth-middleware#usage
-    matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/(api|trpc)(.*)"],
+    matcher: [
+        /*
+         * Match all request paths except for the ones starting with:
+         * - api (API routes)
+         * - _next/static (static files)
+         * - _next/image (image optimization files)
+         * - icon.png
+         */
+        "/((?!api|_next/static|_next/image|icon.png|sitemap.xml).*)",
+    ],
 };
 
 // const repository = await client.getRepository();

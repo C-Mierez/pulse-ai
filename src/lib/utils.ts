@@ -19,7 +19,7 @@ export async function getLocales(
                   doc.alternate_languages.map((altLang) => {
                       return altLang.id;
                   }),
-                  { lang: "*", fetch: [`${doc.type}.__nonexistent-field__`] },
+                  { lang: "*", fetch: `${doc.type}.__nonexistent-field__` },
               )
             : Promise.resolve([]),
     ]);
