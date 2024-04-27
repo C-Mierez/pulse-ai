@@ -52,7 +52,7 @@
 
 @layer components {
     .hover-glow {
-        @apply text-primary-200 transition-colors duration-200 ease-in-out hover:text-foreground;
+        @apply transition duration-200 ease-in-out hover:text-foreground hover:opacity-100;
     }
 
     /* Integrations connector */

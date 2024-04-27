@@ -50,7 +50,7 @@ export default async function Navbar(props: NavbarProps) {
                         <li key={item.label}>
                             <PrismicNextLink
                                 field={item.link}
-                                className="inline-flex min-h-11 items-center transition-colors duration-200 ease-in-out hover:text-accent-light"
+                                className="hover-glow inline-flex min-h-11 items-center opacity-90"
                             >
                                 {item.label}
                             </PrismicNextLink>

@@ -3,7 +3,13 @@
 import React, { useRef } from "react";
 import { gsap, useGSAP } from "~/lib/gsap";
 
-export default function Magnetic({ children }: { children: JSX.Element }) {
+export default function Magnetic({
+    children,
+    strength = 1,
+}: {
+    children: JSX.Element;
+    strength?: number;
+}) {
     const ref = useRef<HTMLDivElement>(null);
     const xTo = React.useRef<((value: number) => void) | null>(null);
     const yTo = React.useRef<((value: number) => void) | null>(null);
@@ -28,8 +34,8 @@ export default function Magnetic({ children }: { children: JSX.Element }) {
         const { clientX, clientY } = e;
         const { width, height, left, top } =
             ref.current!.getBoundingClientRect();
-        const x = clientX - (left + width / 2);
-        const y = clientY - (top + height / 2);
+        const x = (clientX - (left + width / 2)) * strength;
+        const y = (clientY - (top + height / 2)) * strength;
 
         xTo.current(x);
         yTo.current(y);

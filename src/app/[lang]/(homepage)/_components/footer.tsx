@@ -22,9 +22,9 @@ export default async function Footer() {
     const locales: Locales = await getLocales(home, client);
 
     const socials = {
-        github: <GitHubLogoIcon className="size-7" />,
-        twitter: <TwitterLogoIcon className="size-7" />,
-        youtube: <DesktopIcon className="size-7" />,
+        github: <GitHubLogoIcon className="size-5" />,
+        twitter: <TwitterLogoIcon className="size-5" />,
+        youtube: <DesktopIcon className="size-5" />,
     };
 
     return (
@@ -43,11 +43,14 @@ export default async function Footer() {
                     </p>
                     <span className="sr-only">Pulse.AI Home Page</span>
                 </Link>
-                <ul className="flex w-fit gap-1 justify-self-center max-md:-order-1">
+                <ul className="flex w-fit justify-self-center max-md:-order-1">
                     {settings.data.socials.map((item) => (
-                        <Magnetic key={item.socials}>
-                            <li className="rounded-lg p-4 transition-colors duration-200 ease-in-out hover:text-accent-light/85">
-                                <PrismicNextLink field={item.link}>
+                        <Magnetic key={item.socials} strength={0.5}>
+                            <li>
+                                <PrismicNextLink
+                                    field={item.link}
+                                    className="block rounded-lg p-3 transition-colors duration-200 ease-in-out hover:text-accent-light/85"
+                                >
                                     <span className="sr-only">
                                         {item.socials}
                                     </span>
@@ -62,7 +65,7 @@ export default async function Footer() {
                         <li key={item.label}>
                             <PrismicNextLink
                                 field={item.link}
-                                className="inline-flex min-h-8 items-center"
+                                className="hover-glow inline-flex min-h-8 items-center opacity-80"
                             >
                                 {item.label}
                             </PrismicNextLink>
