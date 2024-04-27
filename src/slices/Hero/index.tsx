@@ -1,4 +1,4 @@
-import PulseGrid from "~/app/(homepage)/_components/pulse-grid";
+import PulseGrid from "~/app/[lang]/(homepage)/_components/pulse-grid";
 
 import AnimatedHeroContent from "./animated-content";
 

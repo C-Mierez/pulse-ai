@@ -1,3 +1,4 @@
+import { asText } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicText, SliceZone } from "@prismicio/react";
 import { notFound } from "next/navigation";
@@ -8,13 +9,12 @@ import { components } from "~/slices";
 import PulseGrid from "../../_components/pulse-grid";
 
 import type { Metadata } from "next";
-import { asText } from "@prismicio/client";
-type Params = { uid: string };
+type Params = { uid: string; lang: string };
 
 export default async function CompanyPage({ params }: { params: Params }) {
     const client = createClient();
     const page = await client
-        .getByUID("case_study", params.uid)
+        .getByUID("case_study", params.uid, { lang: params.lang })
         .catch(() => notFound());
 
     return (
@@ -57,7 +57,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
     const client = createClient();
     const page = await client
-        .getByUID("case_study", params.uid)
+        .getByUID("case_study", params.uid, { lang: params.lang })
         .catch(() => notFound());
 
     return {
@@ -68,7 +68,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
     const client = createClient();
-    const pages = await client.getAllByType("case_study");
+    const pages = await client.getAllByType("case_study", { lang: "*" });
 
     return pages.map((page) => {
         return { uid: page.uid };

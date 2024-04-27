@@ -291,6 +291,17 @@ interface SettingsDocumentData {
     fallback_og_image: prismic.ImageField<never>;
 
     /**
+     * Root field in *Settings*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.root
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+     */
+    root: prismic.LinkField;
+
+    /**
      * Navigation field in *Settings*
      *
      * - **Field Type**: Group

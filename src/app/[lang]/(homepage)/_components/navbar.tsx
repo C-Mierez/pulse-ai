@@ -1,26 +1,34 @@
 import { PrismicNextLink } from "@prismicio/next";
-import Link from "next/link";
 import Branding from "~/components/shared/branding";
 import ButtonCTA from "~/components/shared/button-cta";
+import type { Locales } from "~/lib/utils";
 
 import Menu from "./menu";
 
 import type { Content } from "@prismicio/client";
+import { LangSwitcher } from "~/components/shared/lang-switcher";
 interface NavbarProps {
     settings: Content.SettingsDocument;
+    locales: Locales;
 }
 
-export default function Navbar(props: NavbarProps) {
+export default async function Navbar(props: NavbarProps) {
     return (
         <nav
             className="mx-auto flex max-w-7xl items-center justify-between gap-2 font-medium"
             aria-label="Main Navigation"
         >
             <div className="flex flex-1 items-center justify-between">
-                <Link className="z-50 flex gap-2" href={"/"}>
+                <PrismicNextLink
+                    className="z-50 flex gap-2"
+                    field={props.settings.data.root}
+                >
                     <Branding />
                     <span className="sr-only">Pulse.AI Home Page</span>
-                </Link>
+                </PrismicNextLink>
+                <div className="ml-2 mr-auto">
+                    <LangSwitcher locales={props.locales} />
+                </div>
                 <Menu settings={props.settings} />
             </div>
 

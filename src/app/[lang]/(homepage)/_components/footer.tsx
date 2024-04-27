@@ -8,10 +8,13 @@ import Link from "next/link";
 import Magnetic from "~/components/layout/magnetic";
 import Branding from "~/components/shared/branding";
 import { createClient } from "~/prismicio";
+import { getServerContext } from "~/lib/server-context";
 
 export default async function Footer() {
+    const lang = getServerContext("lang");
+
     const prismicClient = createClient();
-    const settings = await prismicClient.getSingle("settings");
+    const settings = await prismicClient.getSingle("settings", { lang: lang });
 
     const socials = {
         github: <GitHubLogoIcon className="size-7" />,

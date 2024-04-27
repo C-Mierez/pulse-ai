@@ -3,8 +3,6 @@ import "~/styles/globals.css";
 import { Gabarito } from "next/font/google";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "~/prismicio";
-import Footer from "./(homepage)/_components/footer";
-import Header from "./(homepage)/_components/header";
 import { Providers } from "./providers";
 
 const gabarito = Gabarito({
@@ -26,11 +24,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`font-sans ${gabarito.variable}`}>
-                <Providers>
-                    <Header />
-                    <main>{children}</main>
-                    <Footer />
-                </Providers>
+                <Providers>{children}</Providers>
             </body>
             <PrismicPreview repositoryName={repositoryName} />
         </html>

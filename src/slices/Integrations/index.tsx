@@ -1,7 +1,7 @@
 import { PrismicText } from "@prismicio/react";
 import Image from "next/image";
 import React from "react";
-import StarBackground from "~/app/(homepage)/_components/start-background";
+import StarBackground from "~/app/[lang]/(homepage)/_components/start-background";
 import Bounded from "~/components/layout/bounded";
 
 import AnimatedIntegrationsContent from "./animated-content";

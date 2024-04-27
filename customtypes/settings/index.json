@@ -28,6 +28,15 @@
                     "thumbnails": []
                 }
             },
+            "root": {
+                "type": "Link",
+                "config": {
+                    "label": "Root",
+                    "placeholder": "",
+                    "allowTargetBlank": false,
+                    "select": null
+                }
+            },
             "navigation": {
                 "type": "Group",
                 "config": {

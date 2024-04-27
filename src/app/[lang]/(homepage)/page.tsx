@@ -4,16 +4,20 @@ import { createClient } from "~/prismicio";
 import { components } from "~/slices";
 
 import type { Metadata } from "next";
-
+type Params = { uid: string; lang: string };
 // This component renders your homepage.
 //
 // Use Next's generateMetadata function to render page metadata.
 //
 // Use the SliceZone to render the content of the page.
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+    params,
+}: {
+    params: Params;
+}): Promise<Metadata> {
     const client = createClient();
-    const home = await client.getByUID("page", "home");
+    const home = await client.getByUID("page", "home", { lang: params.lang });
 
     return {
         title: prismic.asText(home.data.title),
@@ -25,10 +29,14 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default async function Index() {
+export default async function Index({ params }: { params: { lang: string } }) {
     // The client queries content from the Prismic API
     const client = createClient();
-    const home = await client.getByUID("page", "home");
+    const home = await client.getByUID("page", "home", { lang: params.lang });
 
-    return <SliceZone slices={home.data.slices} components={components} />;
+    return (
+        <>
+            <SliceZone slices={home.data.slices} components={components} />
+        </>
+    );
 }
