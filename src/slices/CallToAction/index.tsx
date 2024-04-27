@@ -26,11 +26,17 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <PlainLogo />
             </div>
 
-            <h2 className="mt-6 max-w-2xl text-balance text-center text-5xl max-md:text-4xl">
+            <h2 className="max-w-2xl text-balance text-center text-5xl max-md:text-4xl">
                 <PrismicText field={slice.primary.heading} />
             </h2>
 
-            <ButtonCTA field={slice.primary.button_link}>
+            <ButtonCTA
+                size={"xl"}
+                prismic={{
+                    field: slice.primary.button_link,
+                    className: "mt-4",
+                }}
+            >
                 {slice.primary.button_label}
             </ButtonCTA>
         </Bounded>

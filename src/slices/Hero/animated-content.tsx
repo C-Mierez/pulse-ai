@@ -93,8 +93,11 @@ export default function AnimatedHeroContent({
                 {isFilled.link(slice.primary.button_link) &&
                     isFilled.keyText(slice.primary.button_label) && (
                         <ButtonCTA
-                            field={slice.primary.button_link}
-                            className="hero__cta text-xl opacity-0"
+                            size={"xl"}
+                            prismic={{
+                                field: slice.primary.button_link,
+                                className: "hero__cta opacity-0",
+                            }}
                         >
                             {slice.primary.button_label}
                         </ButtonCTA>

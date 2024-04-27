@@ -70,7 +70,7 @@ export default function Menu(props: MenuProps) {
                             return (
                                 <li key={index}>
                                     <ButtonCTA
-                                        field={item.link}
+                                        prismic={{ field: item.link }}
                                         aria-current={
                                             pathname.includes(
                                                 asLink(item.link) as string,

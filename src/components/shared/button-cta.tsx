@@ -4,12 +4,49 @@ import { PrismicNextLink } from "@prismicio/next";
 import { useRef } from "react";
 import { gsap, useGSAP } from "~/lib/gsap";
 import { cn } from "~/lib/utils";
-
 import type { PrismicNextLinkProps } from "@prismicio/next";
+import { cva, VariantProps } from "class-variance-authority";
+
+export interface ButtonCTAProps extends VariantProps<typeof variants> {
+    prismic: PrismicNextLinkProps;
+    asChild?: boolean;
+    children: React.ReactNode;
+}
+
+const variants = cva(
+    "radial-bg hover-glow relative flex max-w-fit items-center rounded-lg text-center font-light text-primary-200",
+    {
+        variants: {
+            variant: {
+                default: "",
+            },
+            size: {
+                default: "px-6 py-2 text-lg",
+                md: "px-4 py-1 text-base",
+                xl: "px-6 py-2 text-xl",
+                stretch: "px-6 py-2 text-lg",
+                stretchMd: "px-4 py-1 text-base",
+            },
+        },
+        compoundVariants: [
+            {
+                size: ["default", "md", "xl"],
+                className: "h-fit",
+            },
+        ],
+        defaultVariants: {
+            variant: "default",
+            size: "default",
+        },
+    },
+);
+
 export default function ButtonCTA({
-    className,
+    children,
+    size,
+    variant,
     ...props
-}: PrismicNextLinkProps) {
+}: ButtonCTAProps) {
     const buttonRef = useRef(null);
     gsap.registerPlugin(useGSAP);
     const { contextSafe } = useGSAP(
@@ -45,16 +82,15 @@ export default function ButtonCTA({
     return (
         <PrismicNextLink
             ref={buttonRef}
-            {...props}
+            {...props.prismic}
             className={cn(
-                "radial-bg hover-glow relative block max-w-fit rounded-lg px-6 py-2 text-center text-lg font-light text-primary-200",
-                className,
+                variants({ variant, size, className: props.prismic.className }),
             )}
             onPointerDown={animOnTapDown}
             onPointerUp={animOnTapUp}
             onPointerOut={animOnTapUp}
         >
-            <span className="linear-mask">{props.children}</span>
+            <span className="linear-mask">{children}</span>
             <span className="linear-overlay absolute inset-0 block rounded-lg p-px"></span>
         </PrismicNextLink>
     );

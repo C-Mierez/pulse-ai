@@ -65,8 +65,10 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
                             </div>
 
                             <ButtonCTA
-                                field={item.button_link}
-                                className="mt-2"
+                                prismic={{
+                                    field: item.button_link,
+                                    className: "mt-2",
+                                }}
                             >
                                 {item.button_label ?? "Learn More"}
                             </ButtonCTA>

@@ -41,7 +41,11 @@ export default async function Navbar(props: NavbarProps) {
                     // Return a CTA styled button if the item is marked as CTA
                     if (item.cta_button)
                         return (
-                            <ButtonCTA key={item.label} field={item.link}>
+                            <ButtonCTA
+                                key={item.label}
+                                prismic={{ field: item.link }}
+                                size={"stretchMd"}
+                            >
                                 {item.label}
                             </ButtonCTA>
                         );
