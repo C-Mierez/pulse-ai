@@ -43,12 +43,13 @@ In the end, I decided to use Next.js `cache` to create and memoize a server-only
 - [x] Fix lack of global padding on small screens
 - [x] Add localization
 - [ ] Add more data to mobile nav menu, like a footer
-- [ ] Fill the Features page with something
+- [x] Fill the Features page with something
 - [x] Add Lenis scroll ♥
 - [ ] Add a Back to Top prompt at the bottom of the page
 - [x] Add socials to CMS and place them on footer
 - [ ] Style scrollbar
-- [ ] Fix menu overflow on mobile
+- [x] Fix menu overflow on mobile
+- [ ] Add loader underneath nav
 
 ### TODO Animations
 - [ ] Website loader
@@ -66,3 +67,6 @@ In the end, I decided to use Next.js `cache` to create and memoize a server-only
 - [ ] Add border illumination on bento boxes based on mouse position
 - [ ] Animate nav menu
 - [ ] Add parallax to floating assets like images
+- [ ] Bento box 3d mouse follow effect
+- [ ] Bento box brighten up glass on enter
+- [ ] Showcase section header enter with background light-up inspired by Linear's
