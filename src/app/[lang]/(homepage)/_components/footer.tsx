@@ -10,7 +10,7 @@ import Branding from "~/components/shared/branding";
 import { createClient } from "~/prismicio";
 import { getServerContext } from "~/lib/server-context";
 import { LangSwitcher } from "~/components/shared/lang-switcher";
-import { getLocales, Locales } from "~/lib/utils";
+import { getLocales, type Locales } from "~/lib/utils";
 
 export default async function Footer() {
     const lang = getServerContext("lang");
