@@ -103,17 +103,23 @@
         );
     }
     .linear-overlay {
+        --initialColor: hsla(var(--primary-600), 0.5);
+        --glowColor: hsla(var(--accent-light), 0.5);
         background-image: linear-gradient(
             -75deg,
-            hsla(var(--primary-800), 0.5) calc(var(--x) + 20%),
-            hsla(var(--accent-light), 0.5) calc(var(--x) + 30%),
-            hsla(var(--primary-800), 0.5) calc(var(--x) + 100%)
+            var(--initialColor) calc(var(--x) + 20%),
+            var(--glowColor) calc(var(--x) + 30%),
+            var(--initialColor) calc(var(--x) + 100%)
         );
         mask:
             linear-gradient(black, black) content-box,
             linear-gradient(black, black);
         mask-composite: exclude;
         --webkit-mask-composite: xor;
+    }
+
+    .linear-overlay:hover {
+        --initialColor: hsla(var(--primary-300), 0.5);
     }
 }
 
