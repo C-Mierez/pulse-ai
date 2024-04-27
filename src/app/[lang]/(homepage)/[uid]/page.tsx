@@ -42,9 +42,9 @@ export default async function Page({ params }: { params: Params }) {
         .catch(() => notFound());
 
     return (
-        <>
+        <div className="flex flex-col items-center">
             <SliceZone slices={page.data.slices} components={components} />
-        </>
+        </div>
     );
 }
 

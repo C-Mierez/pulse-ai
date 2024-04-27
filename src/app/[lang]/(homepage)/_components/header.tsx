@@ -14,7 +14,7 @@ export default async function Header() {
     const locales: Locales = await getLocales(home, client);
 
     return (
-        <header className="p-4">
+        <header className="sticky top-0 z-40 border-b border-primary-900/40 bg-primary-900/40 p-4 backdrop-blur-md">
             <Navbar settings={settings} locales={locales} />
         </header>
     );
