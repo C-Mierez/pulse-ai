@@ -21,10 +21,12 @@ const CaseStudies = async ({
     const client = createClient();
 
     const caseStudies = await Promise.all(
-        slice.items.map((item) => {
+        slice.items.map(async (item) => {
             if (isFilled.contentRelationship(item.case_study)) {
-                return client.getByID<Content.CaseStudyDocument>(
-                    item.case_study.id,
+                return await client.getByUID<Content.CaseStudyDocument>(
+                    "case_study",
+                    item.case_study.uid!,
+                    { lang: item.case_study.lang },
                 );
             }
         }),
