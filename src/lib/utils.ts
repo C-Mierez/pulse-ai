@@ -39,3 +39,8 @@ export async function getLocales(
 }
 
 export type Locales = Awaited<ReturnType<typeof getLocales>>;
+
+export const localeLabels = {
+    "en-us": "EN",
+    "es-ar": "AR",
+};

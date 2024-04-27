@@ -7,11 +7,13 @@ import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ButtonCTA from "~/components/shared/button-cta";
+import { LangSwitcher } from "~/components/shared/lang-switcher";
 import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
+import { cn, type Locales } from "~/lib/utils";
 
 interface MenuProps {
     settings: Content.SettingsDocument;
+    locales: Locales;
 }
 
 export default function Menu(props: MenuProps) {
@@ -20,6 +22,9 @@ export default function Menu(props: MenuProps) {
 
     return (
         <>
+            <div className="flex items-center px-4 md:hidden">
+                <LangSwitcher locales={props.locales} />
+            </div>
             <Button
                 size={"icon"}
                 variant={"outline"}
