@@ -4,11 +4,11 @@ This is a mock landing website for a fictional company called Pulse.AI.
 The website is a single page application that showcases the company's services, features, and contact information.
 
 The key aspects of this website are:
-- Use of a Prismic CMS to handle all content and allow for easy update and creation of components.
-- Localization 
-- Use of GSAP for modern animations and transitions.
-- Provide semantic HTML and follow accessibility requirements, as well as respect user preferences.
-- (Potentially) Use of Tailwind v4 unstable version to try out the new features. 
+- [x] Use of a Prismic CMS to handle all content and allow for easy update and creation of components.
+- [x] Localization 
+- [ ] Use of GSAP for modern animations and transitions.
+- [x] Provide semantic HTML and follow accessibility requirements, as well as respect user animation preferences.
+- [ ] (Potentially) Use of Tailwind v4 unstable version to try out the new features. 
 
 ## Experience using Prismic
 The use of Prismic CMS allows for easy content management and creation of new slices, variations or entire pages. We programmatically create the pages and components based on the content fetched from Prismic, which allows content managers who are not necessarily developers to create and update the website without needing to touch the codebase.
