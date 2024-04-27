@@ -20,18 +20,18 @@ const CaseStudies = async ({
 }: CaseStudiesProps): Promise<JSX.Element> => {
     const client = createClient();
 
-    const caseStudies: Content.CaseStudyDocument[] | null[] = await Promise.all(
-        [],
-        // slice.items.map(async (item) => {
-        // if (isFilled.contentRelationship(item.case_study)) {
-        //     return await client.getByUID<Content.CaseStudyDocument>(
-        //         "case_study",
-        //         item.case_study.uid!,
-        //         { lang: item.case_study.lang },
-        //     );
-        // }
-        // }),
-    );
+    const caseStudies: Array<Content.CaseStudyDocument | undefined> =
+        await Promise.all(
+            slice.items.map(async (item) => {
+                if (isFilled.contentRelationship(item.case_study)) {
+                    return await client.getByUID<Content.CaseStudyDocument>(
+                        "case_study",
+                        item.case_study.uid!,
+                        { lang: item.case_study.lang },
+                    );
+                }
+            }),
+        );
 
     return (
         <Bounded
