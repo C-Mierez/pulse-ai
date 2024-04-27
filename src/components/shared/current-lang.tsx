@@ -12,18 +12,11 @@ export const CurrentLang = ({ locales }: CurrentLangProps) => {
             {locale && (
                 <li
                     key={locale.lang}
-                    className="flex items-start first:font-semibold"
+                    className="flex items-start text-xs first:font-semibold"
+                    aria-label={`Language ${locale.lang_name}`}
                 >
-                    <PrismicNextLink
-                        href={locale.url}
-                        locale={locale.lang}
-                        aria-label={`Change language to ${locale.lang_name}`}
-                        className="text-xs"
-                    >
-                        {localeLabels[
-                            locale.lang as keyof typeof localeLabels
-                        ] || locale.lang}
-                    </PrismicNextLink>
+                    {localeLabels[locale.lang as keyof typeof localeLabels] ||
+                        locale.lang}
                 </li>
             )}
         </ul>

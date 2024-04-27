@@ -19,20 +19,23 @@ export default async function Navbar(props: NavbarProps) {
             className="mx-auto flex max-w-7xl items-center justify-between gap-2 font-medium"
             aria-label="Main Navigation"
         >
-            <div className="flex flex-1 items-center justify-between">
+            {/* /* -------------------------------- Branding -------------------------------- */}
+            <div className="flex flex-1 items-center">
+                {/* Homepage Link */}
                 <PrismicNextLink
-                    className="z-50 flex gap-2"
+                    className="z-50 flex"
                     field={props.settings.data.root}
                 >
-                    <Branding />
                     <span className="sr-only">Pulse.AI Home Page</span>
-                </PrismicNextLink>
-                <div className="mr-auto">
+                    <Branding />
                     <CurrentLang locales={props.locales} />
-                </div>
+                </PrismicNextLink>
+
+                {/* Mobile Menu */}
                 <Menu settings={props.settings} locales={props.locales} />
             </div>
 
+            {/* /* -------------------------------- Navigation -------------------------------- */}
             <ul className="flex items-stretch gap-4 max-md:hidden max-md:flex-col">
                 {props.settings.data.navigation.map((item) => {
                     // Return a CTA styled button if the item is marked as CTA
@@ -54,6 +57,8 @@ export default async function Navbar(props: NavbarProps) {
                         </li>
                     );
                 })}
+
+                {/* /* -------------------------------- Language -------------------------------- */}
                 <div className="w-[1px] bg-accent-light/50"></div>
                 <LangSwitcher locales={props.locales} />
             </ul>

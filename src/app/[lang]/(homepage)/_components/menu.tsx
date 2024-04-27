@@ -21,10 +21,13 @@ export default function Menu(props: MenuProps) {
     const pathname = usePathname();
 
     return (
-        <>
+        <div className="flex flex-1 items-center justify-end">
+            {/* /* -------------------------------- Language -------------------------------- */}
             <div className="flex items-center px-4 md:hidden">
                 <LangSwitcher locales={props.locales} />
             </div>
+
+            {/* /* ------------------------------- Menu Button ------------------------------ */}
             <Button
                 size={"icon"}
                 variant={"outline"}
@@ -38,24 +41,27 @@ export default function Menu(props: MenuProps) {
                 <span className="sr-only">Open Menu</span>
             </Button>
 
+            {/* /* -------------------------------- Mobile Menu ----------------------------- */}
             <div
                 className={cn(
-                    "fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-6 bg-background p-4 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
+                    "fixed inset-0 z-40 flex min-h-[100lvh] flex-col gap-4 bg-accent p-4 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
                     isOpen ? "translate-x-0" : "translate-x-full",
                 )}
             >
-                <Button
-                    size={"icon"}
-                    variant={"outline"}
-                    className="md:hidden"
-                    aria-expanded={isOpen}
-                    onClick={() => {
-                        setIsOpen(false);
-                    }}
-                >
-                    <Cross1Icon className="size-5" />
-                    <span className="sr-only">Open Menu</span>
-                </Button>
+                <div className="flex justify-end">
+                    <Button
+                        size={"icon"}
+                        variant={"outline"}
+                        className="md:hidden"
+                        aria-expanded={isOpen}
+                        onClick={() => {
+                            setIsOpen(false);
+                        }}
+                    >
+                        <Cross1Icon className="size-5" />
+                        <span className="sr-only">Open Menu</span>
+                    </Button>
+                </div>
 
                 <ul className="grid w-full justify-items-center gap-8">
                     {props.settings.data.navigation.map((item, index) => {
@@ -100,6 +106,6 @@ export default function Menu(props: MenuProps) {
                     })}
                 </ul>
             </div>
-        </>
+        </div>
     );
 }
