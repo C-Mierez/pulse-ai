@@ -121,6 +121,28 @@
     .linear-overlay:hover {
         --initialColor: hsla(var(--primary-300), 0.5);
     }
+
+    /* Scrollbar */
+    .scrollbar {
+        /* Non-Standard, But More Styling-Capable Properties */
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: hsl(var(--accent));
+            border-radius: 8px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Standardized Properties */
+        @supports not selector(::-webkit-scrollbar) {
+            scrollbar-color: hsl(var(--accent)) transparent;
+            scrollbar-width: thin;
+        }
+    }
 }
 
 * {

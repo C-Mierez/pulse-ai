@@ -22,7 +22,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
+        <html lang="en" className="scrollbar">
             <body className={`font-sans ${gabarito.variable}`}>
                 <Providers>{children}</Providers>
             </body>

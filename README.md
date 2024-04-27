@@ -47,7 +47,7 @@ In the end, I decided to use Next.js `cache` to create and memoize a server-only
 - [x] Add Lenis scroll ♥
 - [ ] Add a Back to Top prompt at the bottom of the page
 - [x] Add socials to CMS and place them on footer
-- [ ] Style scrollbar
+- [x] Style scrollbar
 - [x] Fix menu overflow on mobile
 - [ ] Add loader underneath nav
 
