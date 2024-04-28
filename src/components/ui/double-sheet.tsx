@@ -42,8 +42,8 @@ const doubleSheetVariants = cva(
         variants: {
             side: {
                 right: [
-                    "[&>#side]:left-0 [&>#side]:w-[35%] [&>#side]:bg-background [&>#side]:data-[state=closed]:slide-out-to-left [&>#side]:data-[state=open]:slide-in-from-left",
-                    "[&>#main]:right-0 [&>#main]:w-[65%] [&>#main]:bg-accent [&>#main]:data-[state=closed]:slide-out-to-right [&>#main]:data-[state=open]:slide-in-from-right",
+                    "[&>#side]:left-0 [&>#side]:w-[35%] [&>#side]:bg-background/50 [&>#side]:backdrop-blur-md [&>#side]:data-[state=closed]:slide-out-to-left [&>#side]:data-[state=open]:slide-in-from-left",
+                    "[&>#main]:right-0 [&>#main]:w-[65%] [&>#main]:bg-gradient-to-tr [&>#main]:from-accent-light [&>#main]:to-accent [&>#main]:data-[state=closed]:slide-out-to-right [&>#main]:data-[state=open]:slide-in-from-right",
                 ],
             },
         },

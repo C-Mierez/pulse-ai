@@ -73,6 +73,16 @@ export default function Menu(props: MenuProps) {
                     <div className="flex h-full flex-col pt-14">
                         <div className="flex h-full max-h-full flex-col justify-between">
                             <ul className="overflow-y-scroll">
+                                <li>
+                                    <SheetClose asChild>
+                                        <PrismicNextLink
+                                            field={props.settings.data.root}
+                                            className="block border-b-2 border-b-background/15 p-4 py-3 text-2xl font-bold text-background hover:bg-accent-light active:bg-accent-light"
+                                        >
+                                            Home
+                                        </PrismicNextLink>
+                                    </SheetClose>
+                                </li>
                                 {props.settings.data.navigation.map((item) => {
                                     // Skip CTA Button
                                     if (item.cta_button) return null;
@@ -82,7 +92,7 @@ export default function Menu(props: MenuProps) {
                                             <SheetClose asChild>
                                                 <PrismicNextLink
                                                     field={item.link}
-                                                    className="block border-b-2 border-b-background/15 p-4 py-3 text-2xl font-bold text-background"
+                                                    className="block border-b-2 border-b-background/15 p-4 py-3 text-2xl font-bold text-background hover:bg-accent-light active:bg-accent-light"
                                                 >
                                                     {item.label}
                                                 </PrismicNextLink>
