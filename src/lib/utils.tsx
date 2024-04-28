@@ -1,4 +1,9 @@
 import { type Client, type Content } from "@prismicio/client";
+import {
+    DesktopIcon,
+    GitHubLogoIcon,
+    TwitterLogoIcon,
+} from "@radix-ui/react-icons";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -43,4 +48,10 @@ export type Locales = Awaited<ReturnType<typeof getLocales>>;
 export const localeLabels = {
     "en-us": "EN",
     "es-ar": "AR",
+};
+
+export const socials = {
+    github: <GitHubLogoIcon className="size-5" />,
+    twitter: <TwitterLogoIcon className="size-5" />,
+    youtube: <DesktopIcon className="size-5" />,
 };

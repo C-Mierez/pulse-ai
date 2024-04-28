@@ -1,12 +1,12 @@
 "use client";
 
 import { PrismicNextLink } from "@prismicio/next";
+import { cva, type VariantProps } from "class-variance-authority";
 import { useRef } from "react";
 import { gsap, useGSAP } from "~/lib/gsap";
 import { cn } from "~/lib/utils";
-import type { PrismicNextLinkProps } from "@prismicio/next";
-import { cva, VariantProps } from "class-variance-authority";
 
+import type { PrismicNextLinkProps } from "@prismicio/next";
 export interface ButtonCTAProps extends VariantProps<typeof variants> {
     prismic: PrismicNextLinkProps;
     asChild?: boolean;

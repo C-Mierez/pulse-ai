@@ -65,7 +65,7 @@ export default async function Footer() {
                         <li key={item.label}>
                             <PrismicNextLink
                                 field={item.link}
-                                className="hover-glow inline-flex min-h-8 items-center opacity-80"
+                                className="hover-glow inline-flex min-h-8 w-max items-center opacity-80"
                             >
                                 {item.label}
                             </PrismicNextLink>

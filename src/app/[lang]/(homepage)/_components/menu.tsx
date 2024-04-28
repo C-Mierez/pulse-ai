@@ -1,24 +1,25 @@
-"use client";
-
-import { asLink } from "@prismicio/client";
-import type { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
-import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import ButtonCTA from "~/components/shared/button-cta";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { LangSwitcher } from "~/components/shared/lang-switcher";
 import { Button } from "~/components/ui/button";
-import { cn, type Locales } from "~/lib/utils";
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetTrigger,
+} from "~/components/ui/double-sheet";
+import { type Locales, socials } from "~/lib/utils";
 
+import type { Content } from "@prismicio/client";
 interface MenuProps {
     settings: Content.SettingsDocument;
     locales: Locales;
 }
 
 export default function Menu(props: MenuProps) {
-    const [isOpen, setIsOpen] = useState(false);
-    const pathname = usePathname();
+    const cta = props.settings.data.navigation.at(
+        props.settings.data.navigation.length - 1,
+    );
 
     return (
         <div className="flex flex-1 items-center justify-end">
@@ -28,84 +29,82 @@ export default function Menu(props: MenuProps) {
             </div>
 
             {/* /* ------------------------------- Menu Button ------------------------------ */}
-            <Button
-                size={"icon"}
-                variant={"outline"}
-                className="md:hidden"
-                aria-expanded={isOpen}
-                onClick={() => {
-                    setIsOpen(true);
-                }}
-            >
-                <HamburgerMenuIcon className="size-5" />
-                <span className="sr-only">Open Menu</span>
-            </Button>
-
-            {/* /* -------------------------------- Mobile Menu ----------------------------- */}
-            <div
-                className={cn(
-                    "fixed inset-0 z-40 flex min-h-[100lvh] flex-col gap-4 bg-accent p-4 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
-                    isOpen ? "translate-x-0" : "translate-x-full",
-                )}
-            >
-                <div className="flex justify-end">
+            <Sheet>
+                <SheetTrigger asChild>
                     <Button
                         size={"icon"}
                         variant={"outline"}
                         className="md:hidden"
-                        aria-expanded={isOpen}
-                        onClick={() => {
-                            setIsOpen(false);
-                        }}
                     >
-                        <Cross1Icon className="size-5" />
+                        <HamburgerMenuIcon className="size-5" />
                         <span className="sr-only">Open Menu</span>
                     </Button>
-                </div>
+                </SheetTrigger>
+                <SheetContent
+                    sideChildren={
+                        <div className="flex h-full flex-col justify-between p-4">
+                            <div className="text-vertical align-middle">
+                                <h1 className="text-7xl font-bold uppercase text-accent">
+                                    Pulse
+                                    <span className="text-foreground">
+                                        .Menu
+                                    </span>
+                                </h1>
+                            </div>
+                            <ul className="flex w-full flex-col items-end justify-center">
+                                {props.settings.data.socials.map((item) => (
+                                    <li key={item.socials}>
+                                        <PrismicNextLink
+                                            field={item.link}
+                                            className="block rounded-lg p-3 transition-colors duration-200 ease-in-out hover:text-accent-light/85"
+                                        >
+                                            <span className="sr-only">
+                                                {item.socials}
+                                            </span>
+                                            {item.socials &&
+                                                socials[item.socials]}
+                                        </PrismicNextLink>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    }
+                >
+                    <div className="flex h-full flex-col pt-14">
+                        <div className="flex h-full max-h-full flex-col justify-between">
+                            <ul className="overflow-y-scroll">
+                                {props.settings.data.navigation.map((item) => {
+                                    // Skip CTA Button
+                                    if (item.cta_button) return null;
 
-                <ul className="grid w-full justify-items-center gap-8">
-                    {props.settings.data.navigation.map((item, index) => {
-                        // Return a CTA styled button if the item is marked as CTA
-                        if (item.cta_button)
-                            return (
-                                <li key={index}>
-                                    <ButtonCTA
-                                        prismic={{ field: item.link }}
-                                        aria-current={
-                                            pathname.includes(
-                                                asLink(item.link) as string,
-                                            )
-                                                ? "page"
-                                                : undefined
-                                        }
+                                    return (
+                                        <li key={item.label}>
+                                            <SheetClose asChild>
+                                                <PrismicNextLink
+                                                    field={item.link}
+                                                    className="block border-b-2 border-b-background/15 p-4 py-3 text-2xl font-bold text-background"
+                                                >
+                                                    {item.label}
+                                                </PrismicNextLink>
+                                            </SheetClose>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                            <div className="p-4">
+                                {!!cta && (
+                                    <PrismicNextLink
+                                        field={cta.link}
+                                        className="block rounded-lg bg-background p-4 py-3 text-center text-2xl font-bold text-foreground"
                                     >
-                                        {item.label}
-                                    </ButtonCTA>
-                                </li>
-                            );
-
-                        return (
-                            <li key={index}>
-                                <PrismicNextLink
-                                    field={item.link}
-                                    onClick={() => {
-                                        setIsOpen(false);
-                                    }}
-                                    aria-current={
-                                        pathname.includes(
-                                            asLink(item.link) as string,
-                                        )
-                                            ? "page"
-                                            : undefined
-                                    }
-                                >
-                                    {item.label}
-                                </PrismicNextLink>
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
+                                        {cta.label}
+                                    </PrismicNextLink>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </SheetContent>
+            </Sheet>
         </div>
     );
 }

@@ -1,4 +1,3 @@
-import { PrismicNextLink } from "@prismicio/next";
 import { localeLabels, type Locales } from "~/lib/utils";
 
 interface CurrentLangProps {

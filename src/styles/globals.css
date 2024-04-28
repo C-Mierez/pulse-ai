@@ -143,6 +143,12 @@
             scrollbar-width: thin;
         }
     }
+
+    /* Orientation */
+    .text-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
 }
 
 * {
