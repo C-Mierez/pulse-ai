@@ -50,6 +50,7 @@ In the end, I decided to use Next.js `cache` to create and memoize a server-only
 - [x] Style scrollbar
 - [x] Fix menu overflow on mobile
 - [ ] Add loader underneath nav
+- [ ] Fix mobile menu button not animating on leave
 
 ### TODO Animations
 - [ ] Website page loader
