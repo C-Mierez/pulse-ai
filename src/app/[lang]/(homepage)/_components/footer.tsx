@@ -35,16 +35,15 @@ export default async function Footer() {
                 className="mx-auto grid max-w-7xl grid-cols-3 items-center justify-between gap-4 max-md:grid-cols-1"
                 aria-label="Footer"
             >
-                <Link
-                    className="flex flex-col items-start max-md:order-2 max-md:items-center"
-                    href={"/"}
-                >
-                    <Branding />
-                    <p className="mt-2 text-center text-xs font-extralight text-muted">
-                        © 2024 Pulse.AI, Inc. All rights reserved.
-                    </p>
-                    <span className="sr-only">Pulse.AI Home Page</span>
-                </Link>
+                <div className="flex w-fit flex-col items-start max-md:order-2 max-md:items-center">
+                    <Link href={"/"}>
+                        <Branding />
+                        <p className="mt-2 text-center text-xs font-extralight text-muted">
+                            © 2024 Pulse.AI, Inc. All rights reserved.
+                        </p>
+                        <span className="sr-only">Pulse.AI Home Page</span>
+                    </Link>
+                </div>
                 <ul className="flex w-fit justify-self-center max-md:-order-1">
                     {settings.data.socials.map((item) => (
                         <Magnetic key={item.socials} strength={0.5}>
@@ -62,7 +61,7 @@ export default async function Footer() {
                         </Magnetic>
                     ))}
                 </ul>
-                <ul className="flex items-center gap-6 font-medium  max-md:flex-col max-md:gap-2 max-md:rounded-lg max-md:border max-md:border-border max-md:bg-primary-300/5 max-md:py-4 md:justify-self-end">
+                <ul className="flex items-center gap-6 font-medium max-lg:flex-wrap max-md:flex-col max-md:gap-2 max-md:rounded-lg max-md:border max-md:border-border max-md:bg-primary-300/5 max-md:py-4 md:justify-self-end">
                     {settings.data.navigation.map((item) => (
                         <li key={item.label}>
                             <PrismicNextLink
