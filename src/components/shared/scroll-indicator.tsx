@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { gsap, ScrollTrigger, useGSAP } from "~/lib/gsap";
 import { cn } from "~/lib/utils";
 
-import { Content } from "@prismicio/client";
+import { type Content } from "@prismicio/client";
 import { DoubleArrowDownIcon, DoubleArrowUpIcon } from "@radix-ui/react-icons";
 import { useLenis } from "@studio-freight/react-lenis";
 
