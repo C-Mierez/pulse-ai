@@ -45,12 +45,13 @@ In the end, I decided to use Next.js `cache` to create and memoize a server-only
 - [x] Revamp mobile menu
 - [x] Fill the Features page with something
 - [x] Add Lenis scroll ♥
-- [ ] Add a Back to Top prompt at the bottom of the page
+- [x] Add a Back to Top button
 - [x] Add socials to CMS and place them on footer
 - [x] Style scrollbar
 - [x] Fix menu overflow on mobile
-- [ ] Add loader underneath nav
+- [x] Add loader underneath nav
 - [ ] Fix mobile menu button not animating on leave
+- [ ] Potentially rework the features section
 
 ### TODO Animations
 - [ ] Website page loader
