@@ -51,7 +51,7 @@ export default function AnimatedHeroContent({
 
             t1.fromTo(
                 ".hero__cta",
-                { scale: 1.2, opacity: 0 },
+                { scale: 1.1, opacity: 0 },
                 { scale: 1, opacity: 1, duration: 1.2 },
                 "-=0.4",
             );
@@ -66,7 +66,7 @@ export default function AnimatedHeroContent({
                 ".hero__glow",
                 { scale: 0.5, opacity: 0 },
                 { scale: 1, opacity: 1, duration: 1.6 },
-                "-=0.6",
+                "-=0.8",
             );
         },
         { scope: boundedRef },
@@ -92,18 +92,20 @@ export default function AnimatedHeroContent({
                         <PrismicText field={slice.primary.subheading} />
                     </p>
                 )}
-                {isFilled.link(slice.primary.button_link) &&
-                    isFilled.keyText(slice.primary.button_label) && (
-                        <ButtonCTA
-                            size={"xl"}
-                            prismic={{
-                                field: slice.primary.button_link,
-                                className: "hero__cta opacity-0",
-                            }}
-                        >
-                            {slice.primary.button_label}
-                        </ButtonCTA>
-                    )}
+                <div className="overflow-hidden">
+                    {isFilled.link(slice.primary.button_link) &&
+                        isFilled.keyText(slice.primary.button_label) && (
+                            <ButtonCTA
+                                size={"xl"}
+                                prismic={{
+                                    field: slice.primary.button_link,
+                                    className: "hero__cta opacity-0",
+                                }}
+                            >
+                                {slice.primary.button_label}
+                            </ButtonCTA>
+                        )}
+                </div>
                 {isFilled.image(slice.primary.image) && (
                     <div className="hero__image glass-surface mt-8 opacity-0">
                         <div className="hero__glow absolute inset-3 z-[-11] bg-accent/45 blur-2xl filter max-md:blur-lg"></div>
