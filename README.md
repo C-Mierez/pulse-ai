@@ -50,13 +50,13 @@ In the end, I decided to use Next.js `cache` to create and memoize a server-only
 - [x] Style scrollbar
 - [x] Fix menu overflow on mobile
 - [x] Add loader underneath nav
-- [ ] Fix mobile menu button not animating on leave
+- [x] Fix mobile menu button not animating on leave
 - [ ] Potentially rework the features section
 
 ### TODO Animations
 - [ ] Website page loader
 - [ ] Page transition
-- [ ] Hero section heading animation
+- [x] Hero section heading animation
 - [ ] Bento boxes enter animation from different sides
 - [ ] Shine effect on gradient text
 - [ ] Showcase cards image enter animation
