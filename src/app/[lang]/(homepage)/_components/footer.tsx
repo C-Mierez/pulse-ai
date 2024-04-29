@@ -1,16 +1,18 @@
+import Link from "next/link";
+import Magnetic from "~/components/layout/magnetic";
+import Branding from "~/components/shared/branding";
+import { LangSwitcher } from "~/components/shared/lang-switcher";
+import ScrollIndicator from "~/components/shared/scroll-indicator";
+import { getServerContext } from "~/lib/server-context";
+import { getLocales, type Locales } from "~/lib/utils";
+import { createClient } from "~/prismicio";
+
 import { PrismicNextLink } from "@prismicio/next";
 import {
     DesktopIcon,
     GitHubLogoIcon,
     TwitterLogoIcon,
 } from "@radix-ui/react-icons";
-import Link from "next/link";
-import Magnetic from "~/components/layout/magnetic";
-import Branding from "~/components/shared/branding";
-import { createClient } from "~/prismicio";
-import { getServerContext } from "~/lib/server-context";
-import { LangSwitcher } from "~/components/shared/lang-switcher";
-import { getLocales, type Locales } from "~/lib/utils";
 
 export default async function Footer() {
     const lang = getServerContext("lang");
@@ -28,7 +30,7 @@ export default async function Footer() {
     };
 
     return (
-        <footer className="border-t border-border p-4">
+        <footer className="relative border-t border-border p-4">
             <nav
                 className="mx-auto grid max-w-7xl grid-cols-3 items-center justify-between gap-4 max-md:grid-cols-1"
                 aria-label="Footer"
@@ -74,6 +76,7 @@ export default async function Footer() {
                     <LangSwitcher invert={true} locales={locales} />
                 </ul>
             </nav>
+            <ScrollIndicator settings={settings} />
         </footer>
     );
 }

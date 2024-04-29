@@ -254,6 +254,31 @@ export interface SettingsDocumentDataSocialsItem {
 }
 
 /**
+ * Item in *Settings → Scroll Indicator*
+ */
+export interface SettingsDocumentDataScrollIndicatorItem {
+    /**
+     * Up Direction field in *Settings → Scroll Indicator*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.scroll_indicator[].up_direction
+     * - **Documentation**: https://prismic.io/docs/field#key-text
+     */
+    up_direction: prismic.KeyTextField;
+
+    /**
+     * Down Direction field in *Settings → Scroll Indicator*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.scroll_indicator[].down_direction
+     * - **Documentation**: https://prismic.io/docs/field#key-text
+     */
+    down_direction: prismic.KeyTextField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -324,6 +349,19 @@ interface SettingsDocumentData {
      * - **Documentation**: https://prismic.io/docs/field#group
      */
     socials: prismic.GroupField<Simplify<SettingsDocumentDataSocialsItem>>;
+
+    /**
+     * Scroll Indicator field in *Settings*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.scroll_indicator[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/field#group
+     */
+    scroll_indicator: prismic.GroupField<
+        Simplify<SettingsDocumentDataScrollIndicatorItem>
+    >;
 }
 
 /**
@@ -1014,6 +1052,7 @@ declare module "@prismicio/client" {
             SettingsDocumentData,
             SettingsDocumentDataNavigationItem,
             SettingsDocumentDataSocialsItem,
+            SettingsDocumentDataScrollIndicatorItem,
             AllDocumentTypes,
             BentoSlice,
             BentoSliceDefaultPrimary,

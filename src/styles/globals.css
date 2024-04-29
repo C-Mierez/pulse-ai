@@ -29,7 +29,7 @@
 
         --accent-light: 50, 100%, 52%;
         --accent: 46, 100%, 50%;
-        --accent-foreground: 0, 0%, 98%;
+        --accent-foreground: var(--background);
 
         --destructive: 0 84% 60%;
         --destructive-foreground: 0, 0%, 98%;

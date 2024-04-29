@@ -94,6 +94,29 @@
                         }
                     }
                 }
+            },
+            "scroll_indicator": {
+                "type": "Group",
+                "config": {
+                    "label": "Scroll Indicator",
+                    "repeat": false,
+                    "fields": {
+                        "up_direction": {
+                            "type": "Text",
+                            "config": {
+                                "label": "Up Direction",
+                                "placeholder": ""
+                            }
+                        },
+                        "down_direction": {
+                            "type": "Text",
+                            "config": {
+                                "label": "Down Direction",
+                                "placeholder": ""
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
 import { setServerContext } from "~/lib/server-context";
+
 import Footer from "./_components/footer";
 import Header from "./_components/header";
 
@@ -12,6 +13,7 @@ export default function HomepageLayout({
     children,
 }: HomepageLayoutProps) {
     setServerContext("lang", params.lang);
+
     return (
         <>
             <Header />
