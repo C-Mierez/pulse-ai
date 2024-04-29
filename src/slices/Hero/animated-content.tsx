@@ -1,15 +1,17 @@
 "use client";
 
+import { useRef } from "react";
+
+import Bounded from "~/components/layout/bounded";
+import ButtonCTA from "~/components/shared/button-cta";
+import usePrefersReducedMotion from "~/hooks/use-prefers-reduced-motion";
+import { gsap, useGSAP } from "~/lib/gsap";
+
+import type { Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";
-import { useRef } from "react";
-import Bounded from "~/components/layout/bounded";
-import ButtonCTA from "~/components/shared/button-cta";
-import { gsap, useGSAP } from "~/lib/gsap";
-import usePrefersReducedMotion from "~/hooks/use-prefers-reduced-motion";
 
-import type { Content } from "@prismicio/client";
 export default function AnimatedHeroContent({
     slice,
 }: {

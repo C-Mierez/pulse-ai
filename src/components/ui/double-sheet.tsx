@@ -1,11 +1,13 @@
 "use client";
 
 import * as React from "react";
+
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "~/lib/utils";
+
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { Cross1Icon } from "@radix-ui/react-icons";
-import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "~/lib/utils";
 import { Button } from "./button";
 
 const DoubleSheet = SheetPrimitive.Root;
@@ -71,16 +73,18 @@ const DoubleSheetContent = React.forwardRef<
             {...props}
         >
             <div id="side">{sideChildren}</div>
-            <div id="main">{children}</div>
-            <SheetPrimitive.Close
-                asChild
-                className="absolute right-4 top-4 rounded-lg outline-none disabled:pointer-events-none"
-            >
-                <Button size={"icon"} variant={"outline"}>
-                    <Cross1Icon className="size-5" />
-                    <span className="sr-only">Close Menu</span>
-                </Button>
-            </SheetPrimitive.Close>
+            <div id="main" className="relative">
+                {children}
+                <SheetPrimitive.Close
+                    asChild
+                    className="absolute right-4 top-4 rounded-lg outline-none disabled:pointer-events-none"
+                >
+                    <Button size={"icon"} variant={"outline"}>
+                        <Cross1Icon className="size-5" />
+                        <span className="sr-only">Close Menu</span>
+                    </Button>
+                </SheetPrimitive.Close>
+            </div>
         </SheetPrimitive.Content>
     </DoubleSheetPortal>
 ));
@@ -140,13 +144,13 @@ DoubleSheetDescription.displayName = SheetPrimitive.Description.displayName;
 
 export {
     DoubleSheet as Sheet,
-    DoubleSheetPortal as SheetPortal,
-    DoubleSheetOverlay as SheetOverlay,
-    DoubleSheetTrigger as SheetTrigger,
     DoubleSheetClose as SheetClose,
     DoubleSheetContent as SheetContent,
-    DoubleSheetHeader as SheetHeader,
-    DoubleSheetFooter as SheetFooter,
-    DoubleSheetTitle as SheetTitle,
     DoubleSheetDescription as SheetDescription,
+    DoubleSheetFooter as SheetFooter,
+    DoubleSheetHeader as SheetHeader,
+    DoubleSheetOverlay as SheetOverlay,
+    DoubleSheetPortal as SheetPortal,
+    DoubleSheetTitle as SheetTitle,
+    DoubleSheetTrigger as SheetTrigger,
 };
