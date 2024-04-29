@@ -27,6 +27,7 @@
     "gsap": "^3.12.5",
     "lenis": "^1.0.44",
     "next": "^14.2.3",
+    "nextjs-toploader": "^1.6.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-merge": "^2.3.0",
