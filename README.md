@@ -54,22 +54,22 @@ In the end, I decided to use Next.js `cache` to create and memoize a server-only
 - [ ] Potentially rework the features section
 
 ### TODO Animations
-- [ ] Website page loader
-- [ ] Page transition
 - [x] Hero section heading animation
-- [ ] Bento boxes enter animation from different sides
-- [ ] Shine effect on gradient text
-- [ ] Showcase cards image enter animation
-- [ ] Showcase cards hover effect on image (zoom in and color)
-- [ ] Showcase icon spin animation
-- [ ] Showcase heading enter animation from behind first card
-- [ ] Case Study image hover zoom in
-- [ ] Case Study image enter animation
+- [x] Bento boxes enter animation from different sides
+- [ ] Bento box 3d mouse follow effect
+- [x] Bento box brighten up glass on enter
+- [x] Heading gradient text reveal animation
+- [x] Heading highlight reveal animation
+- [x] Shine effect on gradient text
+- [x] Showcase cards hover effect on image (zoom in and color)
+- [x] Showcase images floating parallax
+- [x] Showcase heading enter animation from behind first card
+- [x] Background glow that follows mouse
+- [x] Case Study image hover zoom in
+- [x] Case Study image enter animation
+- [x] Case Study slide content reveal
 - [x] Add magnetic buttons to socials
 - [ ] Add border illumination on bento boxes based on mouse position
-- [ ] Animate nav menu
-- [ ] Add parallax to floating assets like images
-- [ ] Bento box 3d mouse follow effect
-- [ ] Bento box brighten up glass on enter
-- [ ] Showcase section header enter with background light-up inspired by Linear's
+- [x] Animate nav menu
+- [x] Add parallax to floating assets like images
 - [ ] Animate mobile menu elements on enter and leave
