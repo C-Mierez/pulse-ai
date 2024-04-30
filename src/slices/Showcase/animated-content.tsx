@@ -1,11 +1,13 @@
 "use client";
 
-import { PrismicRichText } from "@prismicio/react";
 import { useRef } from "react";
+
 import usePrefersReducedMotion from "~/hooks/use-prefers-reduced-motion";
 import { gsap, useGSAP } from "~/lib/gsap";
 
 import type { Content } from "@prismicio/client";
+import { PrismicRichText } from "@prismicio/react";
+
 export default function AnimatedShowcaseContent({
     slice,
 }: {
@@ -23,20 +25,38 @@ export default function AnimatedShowcaseContent({
                 return;
             }
 
-            gsap.fromTo(
-                boundedRef.current,
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: boundedRef.current,
+                    start: "top 85%",
+                    end: "bottom 50%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+
+            tl.fromTo(
+                "#container > *",
                 {
-                    y: "100%",
+                    y: "150%",
                 },
                 {
                     y: "0%",
-                    scrollTrigger: {
-                        trigger: boundedRef.current,
-                        start: "top bottom-=5%",
-                        end: "bottom top+=60%",
-                        scrub: true,
-                        toggleActions: "play pause resume reverse",
+
+                    stagger: {
+                        each: 0.2,
                     },
+                },
+            );
+
+            tl.fromTo(
+                "#container > :last-child",
+                {
+                    backgroundSize: "0%",
+                },
+                {
+                    backgroundSize: "100%",
+                    color: "#0A0A0A",
+                    fontWeight: "700",
                 },
             );
         },
@@ -44,17 +64,17 @@ export default function AnimatedShowcaseContent({
     );
 
     return (
-        <span ref={boundedRef}>
+        <div ref={boundedRef} id="container">
             <PrismicRichText
                 field={slice.primary.heading}
                 components={{
                     heading2: ({ children }) => (
-                        <h2 className="text-balance text-center text-7xl max-md:text-4xl">
+                        <h2 className="mx-auto w-fit text-balance text-center text-7xl leading-tight last:bg-gradient-to-tr last:from-accent last:to-accent-light last:bg-no-repeat  max-md:text-4xl md:px-[0.5ch]">
                             {children}
                         </h2>
                     ),
                 }}
             />
-        </span>
+        </div>
     );
 }

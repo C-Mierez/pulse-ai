@@ -20,10 +20,11 @@ export default function AnimatedBento({ slice }: AnimatedBentoProps) {
             mm.add("(min-width: 768px)", (ctx) => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
-                        toggleActions: "play reverse play reverse",
+                        // toggleActions: "play reverse play reverse",
                         trigger: bentoRef.current,
                         start: "top 70%",
                         end: "bottom 50%",
+                        once: true,
                     },
                     defaults: {
                         duration: 0.6,

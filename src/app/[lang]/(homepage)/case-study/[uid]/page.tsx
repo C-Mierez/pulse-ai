@@ -9,6 +9,7 @@ import { components } from "~/slices";
 import PulseGrid from "../../_components/pulse-grid";
 
 import type { Metadata } from "next";
+import AnimatedHeading from "./_components/animated-heading";
 type Params = { uid: string; lang: string };
 
 export default async function CompanyPage({ params }: { params: Params }) {
@@ -22,17 +23,7 @@ export default async function CompanyPage({ params }: { params: Params }) {
             <PulseGrid />
             <Bounded as={"div"} className="flex flex-col items-center gap-6">
                 <div className="grid place-items-center gap-8">
-                    <h1 className="text-center text-7xl max-md:text-5xl">
-                        <PrismicText field={page.data.company}></PrismicText>
-                        <p className="text-lg text-accent">
-                            {page.data.article_type}
-                        </p>
-                    </h1>
-                    <p className="max-w-xl text-balance text-center text-xl text-muted">
-                        <PrismicText
-                            field={page.data.description}
-                        ></PrismicText>
-                    </p>
+                    <AnimatedHeading page={page} />
                     <PrismicNextImage
                         field={page.data.logo_image}
                         className="rounded-lg hue-rotate-[185deg] filter"

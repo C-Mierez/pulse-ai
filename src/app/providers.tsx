@@ -6,7 +6,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <ReactLenis
             root={true}
             options={{
-                lerp: 0.2,
+                lerp: 0.15,
                 touchMultiplier: 0.05,
             }}
         >

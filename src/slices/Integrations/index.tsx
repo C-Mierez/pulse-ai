@@ -9,6 +9,7 @@ import background from "./background.jpg";
 
 import type { Content } from "@prismicio/client";
 import type { SliceComponentProps } from "@prismicio/react";
+import AnimatedHeading from "../Bento/animated-heading";
 /**
  * Props for `Integrations`.
  */
@@ -40,9 +41,11 @@ const Integrations = ({ slice }: IntegrationsProps): JSX.Element => {
                         <PrismicText field={slice.primary.heading} />
                     </h2>
 
-                    <p className="max-w-lg text-balance text-center text-lg text-muted">
-                        <PrismicText field={slice.primary.subheading} />
-                    </p>
+                    <AnimatedHeading>
+                        <p className="max-w-lg text-balance text-center text-lg text-muted">
+                            <PrismicText field={slice.primary.subheading} />
+                        </p>
+                    </AnimatedHeading>
 
                     <AnimatedIntegrationsContent slice={slice} />
                 </div>

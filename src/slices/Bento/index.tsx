@@ -25,27 +25,23 @@ const Bento = ({ slice }: BentoProps): JSX.Element => {
             data-slice-variation={slice.variation}
         >
             <div className="flex flex-col items-center gap-8 text-center">
-                <AnimatedHeading>
-                    <PrismicRichText
-                        field={slice.primary.heading}
-                        components={{
-                            heading2: ({ children }) => {
-                                return (
-                                    <h2 className="text-balanced text-7xl max-md:text-4xl">
-                                        {children}
-                                    </h2>
-                                );
-                            },
-                            em: ({ children }) => {
-                                return (
-                                    <AnimatedShine>{children}</AnimatedShine>
-                                );
-                            },
-                        }}
-                    />
-                </AnimatedHeading>
+                <PrismicRichText
+                    field={slice.primary.heading}
+                    components={{
+                        heading2: ({ children }) => {
+                            return (
+                                <h2 className="text-balanced text-7xl max-md:text-4xl">
+                                    {children}
+                                </h2>
+                            );
+                        },
+                        em: ({ children }) => {
+                            return <AnimatedShine>{children}</AnimatedShine>;
+                        },
+                    }}
+                />
 
-                <AnimatedHeading parallaxFactor={0.5}>
+                <AnimatedHeading>
                     <div className="mx-auto max-w-md text-balance text-xl text-muted">
                         <PrismicRichText field={slice.primary.body} />
                     </div>

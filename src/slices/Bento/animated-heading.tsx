@@ -4,28 +4,29 @@ import { gsap, useGSAP } from "~/lib/gsap";
 
 interface AnimatedHeadingProps {
     children: React.ReactNode;
-    parallaxFactor?: number;
 }
 
-export default function AnimatedHeading({
-    children,
-    parallaxFactor = 1,
-}: AnimatedHeadingProps) {
+export default function AnimatedHeading({ children }: AnimatedHeadingProps) {
     const containerRef = useRef(null);
     useGSAP(
         () => {
             gsap.to(containerRef.current, {
-                y: `-${parallaxFactor * 50}`,
+                y: 0,
+                opacity: 1,
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top bottom",
+                    start: "top 80%",
                     end: "bottom top",
-                    scrub: true,
+                    once: true,
                 },
             });
         },
         { scope: containerRef },
     );
 
-    return <div ref={containerRef}>{children}</div>;
+    return (
+        <div ref={containerRef} className="translate-y-[50%] opacity-0">
+            {children}
+        </div>
+    );
 }

@@ -53,7 +53,8 @@ export default function ButtonCTA({
         () => {
             const t1 = gsap.timeline({
                 repeat: -1,
-                repeatDelay: 5,
+                repeatDelay: 5 + Math.random() * 7,
+                delay: 1 + Math.random() * 3,
                 defaults: {
                     duration: 2,
                     ease: "power2.out",
