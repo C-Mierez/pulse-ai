@@ -1,11 +1,9 @@
-import { asText } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText, PrismicText } from "@prismicio/react";
 import Bounded from "~/components/layout/bounded";
-import { cn } from "~/lib/utils";
 
 import type { Content } from "@prismicio/client";
 import type { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
+
 import AnimatedBento from "./animated-bento";
 import AnimatedHeading from "./animated-heading";
 import AnimatedShine from "./animated-shine";

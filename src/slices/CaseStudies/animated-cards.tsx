@@ -1,11 +1,13 @@
 "use client";
 
-import { Content } from "@prismicio/client";
+import { useRef } from "react";
+
+import { gsap, useGSAP } from "~/lib/gsap";
+import { cn } from "~/lib/utils";
+
+import { type Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
-import { cn } from "~/lib/utils";
-import { useGSAP, gsap } from "~/lib/gsap";
-import { useRef } from "react";
 
 interface AnimatedCardProps {
     slice: Content.CaseStudiesSlice;
@@ -71,7 +73,6 @@ export default function AnimatedCards({
 
     return (
         <div
-            key={caseStudy.id}
             ref={containerRef}
             className="group relative grid grid-cols-3 gap-6 rounded-l p-4 transition-opacity duration-300 ease-in-out hover:cursor-pointer hover:opacity-100 max-md:grid-cols-1 md:opacity-85  "
         >

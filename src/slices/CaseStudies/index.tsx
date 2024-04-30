@@ -1,14 +1,14 @@
-import { isFilled } from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { PrismicRichText, PrismicText } from "@prismicio/react";
 import Bounded from "~/components/layout/bounded";
-import { cn } from "~/lib/utils";
 import { createClient } from "~/prismicio";
 
 import type { Content } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 import type { SliceComponentProps } from "@prismicio/react";
+import { PrismicText } from "@prismicio/react";
+
 import AnimatedHeading from "../Bento/animated-heading";
 import AnimatedCards from "./animated-cards";
+
 /**
  * Props for `CaseStudies`.
  */
@@ -58,6 +58,7 @@ const CaseStudies = async ({
                         if (caseStudy) {
                             return (
                                 <AnimatedCards
+                                    key={caseStudy.id}
                                     slice={slice}
                                     index={index}
                                     caseStudy={caseStudy}

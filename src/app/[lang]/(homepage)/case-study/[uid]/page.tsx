@@ -1,15 +1,16 @@
-import { asText } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicText, SliceZone } from "@prismicio/react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Bounded from "~/components/layout/bounded";
 import { createClient } from "~/prismicio";
 import { components } from "~/slices";
 
-import PulseGrid from "../../_components/pulse-grid";
+import { asText } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
+import { SliceZone } from "@prismicio/react";
 
-import type { Metadata } from "next";
+import PulseGrid from "../../_components/pulse-grid";
 import AnimatedHeading from "./_components/animated-heading";
+
 type Params = { uid: string; lang: string };
 
 export default async function CompanyPage({ params }: { params: Params }) {

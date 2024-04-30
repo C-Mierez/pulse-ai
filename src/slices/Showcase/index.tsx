@@ -100,7 +100,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
         xTo.current!(x);
         yTo.current!(y);
     });
-    const onMouseLeave = contextSafe((e: React.MouseEvent) => {
+    const onMouseLeave = contextSafe(() => {
         if (areRefsNull()) return;
 
         xTo.current!(0);

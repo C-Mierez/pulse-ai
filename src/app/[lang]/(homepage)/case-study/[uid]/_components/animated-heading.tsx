@@ -1,7 +1,8 @@
 "use client";
 
-import { useGSAP, gsap } from "~/lib/gsap";
-import { Content } from "@prismicio/client";
+import { gsap, useGSAP } from "~/lib/gsap";
+
+import { type Content } from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 
 interface AnimatedHeadingProps {

@@ -1,11 +1,13 @@
 "use client";
 
-import { asText, Content } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicText } from "@prismicio/react";
 import { useRef } from "react";
+
 import { gsap, useGSAP } from "~/lib/gsap";
 import { cn } from "~/lib/utils";
+
+import { asText, type Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
+import { PrismicText } from "@prismicio/react";
 
 interface AnimatedBentoProps {
     slice: Content.BentoSlice;
@@ -17,7 +19,7 @@ export default function AnimatedBento({ slice }: AnimatedBentoProps) {
         () => {
             const mm = gsap.matchMedia();
 
-            mm.add("(min-width: 768px)", (ctx) => {
+            mm.add("(min-width: 768px)", () => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         // toggleActions: "play reverse play reverse",
